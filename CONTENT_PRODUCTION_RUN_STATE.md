@@ -3,18 +3,24 @@
 - **Data da última execução:** 2026-06-23
 - **Modo:** produção contínua controlada
 - **Escopo:** Livro 1 — Fundamentos de Computação e Engenharia de Software
-- **Último lote iniciado:** Lote 02
-- **Último lote concluído:** Lote 02
+- **Livro atual:** Livro 1
+- **Lote atual:** Lote 03
+- **Último lote iniciado:** Lote 03
+- **Último lote concluído:** Lote 03
+- **Último capítulo concluído:** Capítulo 06 — Redes de computadores
 - **Capítulos processados:**
-  - Capítulo 03 — Sistemas operacionais (`final-gate`)
-  - Capítulo 04 — Processos, threads e concorrência (`final-gate`)
+  - Capítulo 05 — Memória (`final-gate`)
+  - Capítulo 06 — Redes de computadores (`final-gate`)
 - **Capítulos bloqueados:**
-  - Lote 03 — Capítulos 05 e 06, bloqueados para próxima execução por risco de qualidade/contexto, não por falha de conteúdo do Lote 02.
+  - Lote 04 — Capítulos 07 e 08, bloqueados para próxima execução por controle de volume e preservação de qualidade.
 - **Motivo de bloqueio:**
-  - Condição de parada por escopo seguro da execução. Memória, redes e seus efeitos em sistemas reais exigem lote dedicado para preservar profundidade, laboratórios e auditoria editorial.
+  - Condição de parada por escopo seguro da execução. Internet como sistema distribuído e HTTP/APIs exigem lote dedicado para manter profundidade, exemplos, laboratórios e auditoria editorial.
 - **Próxima ação recomendada:**
-  - Iniciar Lote 03 em produção controlada dedicada, começando por `books/livro-01-fundamentos-computacao-engenharia-software/chapters/05-memoria.md`, preservando o padrão consolidado nos Lotes 01 e 02.
+  - Iniciar Lote 04 em produção controlada dedicada, começando por `books/livro-01-fundamentos-computacao-engenharia-software/chapters/07-internet.md`.
 - **Validações finais executadas:**
   - `npm run validate` — passou.
+  - `npm run validate:placeholders` — passou.
+  - `npm run validate:links` — passou.
+  - `npm run validate:depth` — passou.
   - `npm run generate:status` — passou.
   - `npm run generate:search` — passou.
