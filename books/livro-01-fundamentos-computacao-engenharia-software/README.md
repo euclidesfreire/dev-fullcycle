@@ -1,6 +1,6 @@
 # Livro 1 — Fundamentos de Computação e Engenharia de Software
 
-Estrutura planejada para formar a base conceitual antes de Full Stack, IA e Cybersegurança. Os capítulos estão em `planned` e contêm apenas o esqueleto editorial obrigatório para escrita futura.
+Estrutura planejada para formar a base conceitual antes de Full Stack, IA e Cybersegurança. O Capítulo 01 está `approved` após a esteira editorial completa; os capítulos 02–24 permanecem em `planned` até escrita, revisão, auditoria, integração e Final Quality Gate.
 
 ## Capítulos
 

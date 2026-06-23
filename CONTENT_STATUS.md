@@ -1,6 +1,6 @@
 # Content Status
 
-Nenhum conteúdo está completo neste momento. Este arquivo deve ser atualizado apenas após validação automatizada, revisão técnica, auditoria de profundidade e aprovação final.
+O Capítulo 01 do Livro 1 está aprovado após primeira escrita completa, revisão técnica, auditoria de profundidade, revisão de código, integração por geração de status/busca e validação automatizada. Demais capítulos permanecem planejados.
 
 ## Estados permitidos
 
@@ -19,11 +19,11 @@ Nenhum conteúdo está completo neste momento. Este arquivo deve ser atualizado 
 
 ## Livro 1 — Fundamentos de Computação e Engenharia de Software
 
-Todos os capítulos abaixo estão em `planned`. Nenhum capítulo foi escrito integralmente, revisado tecnicamente, auditado em profundidade ou aprovado pelo Final Quality Gate.
+A tabela abaixo registra o estado editorial atual por capítulo. Somente capítulos que passaram por escrita, revisão técnica, auditoria de profundidade, revisão de código, integração e validações finais podem ser marcados como `approved`.
 
 | Capítulo | Arquivo | Status | Próxima etapa |
 |---|---|---|---|
-| O que é computação | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/01-o-que-e-computacao.md` | planned | Chapter Writer Agent |
+| O que é computação | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/01-o-que-e-computacao.md` | approved | Aprovado pelo Final Quality Gate Agent após escrita, revisão técnica, auditoria de profundidade, revisão de código, integração e validações automatizadas. |
 | Hardware, software e camadas de abstração | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/02-hardware-software.md` | planned | Chapter Writer Agent |
 | Sistemas operacionais | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/03-sistemas-operacionais.md` | planned | Chapter Writer Agent |
 | Processos, threads e concorrência | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/04-processos-threads-concorrencia.md` | planned | Chapter Writer Agent |

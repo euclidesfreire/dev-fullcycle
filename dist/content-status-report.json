@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-23T14:36:03.026Z",
+  "generatedAt": "2026-06-23T14:56:55.210Z",
   "totalChapters": 24,
   "chapters": [
     {
       "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/01-o-que-e-computacao.md",
-      "status": "planned"
+      "status": "approved"
     },
     {
       "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/02-hardware-software.md",
