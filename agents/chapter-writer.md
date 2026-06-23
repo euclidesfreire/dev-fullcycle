@@ -65,3 +65,16 @@ npm run validate:links
 ## Relação com os outros agentes
 
 Recebe plano do Curriculum Architect e entrega rascunho para Technical Reviewer, Depth Auditor e Code Example Reviewer.
+
+## Descoberta temática antes da escrita
+
+Antes de escrever ou reescrever qualquer capítulo, o agente deve:
+
+1. Identificar o tema principal do capítulo.
+2. Identificar temas secundários, explícitos e implícitos.
+3. Consultar `TOPIC_DEPTH_INDEX.md`.
+4. Consultar os perfis aplicáveis em `topic-depth-profiles/`.
+5. Acionar ou incorporar a calibragem do `Topic Scope Calibrator`.
+6. Escrever com base no papel e no nível esperado de cada tema.
+
+O capítulo deve declarar os perfis temáticos usados e não deve transformar uma simples menção em deep-dive artificial.

@@ -65,3 +65,11 @@ npm run validate:links
 ## Relação com os outros agentes
 
 Revisa entregas do Chapter Writer e aciona Code Example Reviewer quando houver código.
+
+## Revisão técnica baseada em temas descobertos
+
+A revisão técnica deve usar a descoberta temática dinâmica como entrada. O agente deve validar precisão, atualidade, exemplos, riscos e trade-offs com base nos temas realmente presentes no capítulo, não apenas no título ou no briefing.
+
+Quando um tema descoberto tiver perfil em `topic-depth-profiles/`, a revisão deve verificar se os conceitos obrigatórios, funcionamento interno, segurança, performance, testes e observabilidade do perfil foram respeitados no nível calibrado.
+
+Quando um tema técnico profundo não tiver perfil, o agente deve registrar a lacuna e recomendar encaminhamento ao `Topic Depth Architect`.

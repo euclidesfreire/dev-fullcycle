@@ -10,6 +10,7 @@
     "validate:links": "node scripts/validate-links.js",
     "generate:status": "node scripts/generate-status-report.js",
     "generate:search": "node scripts/generate-search-index.js",
-    "validate": "npm run validate:placeholders && npm run validate:links && npm run validate:depth"
+    "validate": "npm run validate:placeholders && npm run validate:links && npm run validate:depth",
+    "discover:topics": "node scripts/discover-topic-depth.js"
   }
 }

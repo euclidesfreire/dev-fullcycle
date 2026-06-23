@@ -91,3 +91,25 @@ npm run generate:search
 - Usar exemplos que representem sistemas reais.
 - Não ensinar antipadrões como solução recomendada.
 - Separar claramente rascunho, revisão, auditoria, integração e aprovação.
+
+# Descoberta dinâmica de profundidade temática
+
+Antes de escrever, reescrever ou aprovar qualquer capítulo, os agentes devem executar uma análise temática do conteúdo.
+
+Essa análise deve responder:
+
+1. Quais temas técnicos aparecem no capítulo?
+2. Quais temas são centrais?
+3. Quais temas são apenas apoio?
+4. Quais perfis de profundidade se aplicam?
+5. O capítulo declara seus perfis temáticos?
+6. O nível esperado está correto?
+7. O conteúdo cumpre o nível esperado?
+8. Existe algum tema profundo sem perfil?
+9. Existe risco de superficialidade temática?
+
+A lista de perfis em `topic-depth-profiles/` é expansível.
+
+Nenhum agente deve assumir que apenas os perfis já existentes importam.
+
+Se surgir novo tema profundo, o agente deve criar, sugerir ou registrar o perfil correspondente.
