@@ -65,3 +65,17 @@ npm run validate:links
 ## Relação com os outros agentes
 
 É o último agente do fluxo e depende dos relatórios de todos os agentes anteriores.
+
+## Gate temático obrigatório
+
+Só pode aprovar um capítulo se:
+
+1. Houve descoberta temática.
+2. Houve calibragem de escopo.
+3. Os perfis aplicáveis foram usados.
+4. Temas novos foram registrados.
+5. O nível declarado foi cumprido.
+6. O capítulo passou no checklist editorial.
+7. O capítulo passou no checklist temático.
+
+Qualquer ausência de evidência nesses pontos bloqueia aprovação final e impede mudança para `approved`.

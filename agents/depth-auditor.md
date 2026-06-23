@@ -66,3 +66,16 @@ npm run validate:links
 ## Relação com os outros agentes
 
 Recebe capítulos após escrita e revisão técnica; seu parecer é bloqueante para o Final Quality Gate.
+
+## Auditoria temática dinâmica
+
+Além da auditoria geral de profundidade, deve reprovar o capítulo quando:
+
+- O tema central foi tratado genericamente.
+- O capítulo prometeu especialista e entregou básico.
+- O capítulo ignorou funcionamento interno obrigatório do perfil aplicado.
+- O capítulo ignorou segurança, performance, testes ou observabilidade específicos do tema.
+- O capítulo não declarou perfis temáticos.
+- Um tema profundo apareceu como central sem perfil associado ou registro de lacuna.
+
+A auditoria deve cruzar o capítulo com `TOPIC_DEPTH_INDEX.md`, `topic-depth-profiles/` e o parecer do `Topic Scope Calibrator`.
