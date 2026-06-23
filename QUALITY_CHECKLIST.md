@@ -35,3 +35,38 @@ Para cada capítulo, avaliar:
 10. O capítulo evita superficialidade em temas centrais?
 11. O capítulo não exige deep-dive quando o tema é apenas mencionado?
 12. O capítulo exige deep-dive quando o tema é central e especialista?
+
+# Rubrica de livro de referência
+
+Avaliar:
+
+* progressão conceitual;
+* profundidade;
+* funcionamento interno;
+* rigor;
+* exemplos;
+* diagramas;
+* estudos de caso;
+* laboratórios;
+* exercícios;
+* avaliação;
+* aplicação em produção;
+* conexão com projeto final;
+* alinhamento com benchmarks;
+* alinhamento com perfil de especialização.
+
+Escala:
+
+* Reprovado;
+* Aceitável;
+* Avançado;
+* Especialista;
+* Referência.
+
+Regra:
+
+* Capítulos comuns podem ser aprovados como `Avançado` ou `Especialista`.
+* Capítulos centrais de tecnologia profunda devem alcançar `Especialista`.
+* Capítulos deep-dive devem alcançar `Referência`.
+* `Aceitável` não aprova.
+* `Reprovado` exige reescrita.

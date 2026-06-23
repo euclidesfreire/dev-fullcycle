@@ -113,3 +113,32 @@ A lista de perfis em `topic-depth-profiles/` é expansível.
 Nenhum agente deve assumir que apenas os perfis já existentes importam.
 
 Se surgir novo tema profundo, o agente deve criar, sugerir ou registrar o perfil correspondente.
+
+# Benchmark de referência e especialização
+
+Este projeto não busca apenas produzir capítulos completos. Ele busca produzir uma coleção técnica capaz de formar competência especialista.
+
+Antes de aprovar qualquer livro ou capítulo avançado, os agentes devem verificar:
+
+1. Quais benchmarks de referência se aplicam?
+2. Quais perfis de especialização se aplicam?
+3. O capítulo tem profundidade comparável a um capítulo de livro técnico robusto?
+4. O capítulo inclui laboratórios práticos?
+5. O capítulo inclui estudo de caso de produção, quando aplicável?
+6. O capítulo desenvolve competência demonstrável?
+7. O capítulo contribui para o projeto final?
+8. O capítulo tem avaliação de domínio?
+9. O conteúdo prepara para aplicar, diagnosticar, proteger, otimizar e operar?
+
+## Agentes adicionais de benchmark, especialização e domínio
+
+Além da cadeia editorial principal, os seguintes agentes devem ser acionados quando houver capítulo avançado, tema profundo, livro completo, laboratório, estudo de caso, capstone ou avaliação de competência:
+
+1. `reference-benchmark-agent.md`
+2. `specialization-outcome-agent.md`
+3. `lab-designer-agent.md`
+4. `production-case-study-agent.md`
+5. `capstone-evaluator-agent.md`
+6. `mastery-assessment-agent.md`
+
+Esses agentes não substituem revisão técnica, auditoria de profundidade, revisão de código, integração e quality gate. Eles acrescentam uma régua de livro de referência, especialização, prática progressiva, produção e avaliação demonstrável.
