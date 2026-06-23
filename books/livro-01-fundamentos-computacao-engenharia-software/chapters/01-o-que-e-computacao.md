@@ -5,247 +5,411 @@ chapter: 1
 status: approved
 agent_flow: editorial-director -> curriculum-architect -> chapter-writer -> technical-reviewer -> depth-auditor -> code-example-reviewer -> site-integrator -> final-quality-gate
 prerequisites: "Nenhum; capítulo de abertura."
-competencies: "Compreender computação como transformação formal de informação; explicar representação binária, dados, instruções, abstrações, limites computacionais e impactos em Full Stack, IA e Cybersegurança."
-dependencies: "Base para hardware, software, sistemas operacionais, redes, programação, engenharia de software, IA aplicada e segurança."
-final_project_connection: "Inicia o projeto final integrador com um diário técnico de decisões sobre dados, instruções, interfaces, segurança, performance, testes e observabilidade."
+competencies: "Compreender computação como transformação formal de informação e estado; explicar representação, dados, instruções, abstrações, contratos, limites computacionais e impactos em Full Stack, IA e Cybersegurança."
+dependencies: "Base para hardware, software, sistemas operacionais, redes, programação, algoritmos, engenharia de software, IA aplicada e segurança."
+final_project_connection: "Inicia o projeto final integrador com um diário técnico de decisões sobre entidades, entradas, representações, estados, transições, invariantes, segurança, performance, testes e observabilidade."
 ---
 
 # 01. O que é computação
 
 ## Status editorial
 
-- **Estado final:** aprovado após escrita, revisão técnica, auditoria de profundidade, revisão de código, integração por geração de status/busca e validações automatizadas.
+- **Estado final:** aprovado após reestruturação editorial profunda, com progressão do básico ao especialista, exemplos simples e profissionais, aplicação em sistema real, segurança, performance, testes, observabilidade, limitações, trade-offs, exercícios, desafio prático e conexão com o projeto final.
 - **Livro:** Fundamentos de Computação e Engenharia de Software.
 - **Capítulo:** 01 — O que é computação.
-- **Escopo:** computação como transformação de informação; representação de dados; instruções; software como ponte entre intenção humana e execução por máquina; impactos em Full Stack, IA e Cybersegurança.
-- **Esteira aplicada:** Chapter Writer Agent produziu o capítulo; Technical Reviewer Agent aprovou a precisão técnica após correções; Depth Auditor Agent aprovou a profundidade; Code Example Reviewer Agent aprovou os exemplos; Site Integrator Agent foi atendido por geração de status e busca; Final Quality Gate Agent aprovou após validações automatizadas.
+- **Escopo:** computação como representação de informação, transformação formal de estado, execução por máquina, abstrações, correção, limites e consequências profissionais em Full Stack, IA e Cybersegurança.
+- **Esteira editorial declarada:** editorial-director → curriculum-architect → chapter-writer → technical-reviewer → depth-auditor → code-example-reviewer → site-integrator → final-quality-gate.
 
-Este capítulo é a porta de entrada do livro. Ele não presume conhecimento prévio de programação, mas trata o leitor como futuro profissional: desde o primeiro contato, computação será apresentada como disciplina de representação, transformação, automação, verificação e responsabilidade. A meta não é decorar nomes de tecnologias; é construir o modelo mental que permitirá entender por que uma API falha, por que um modelo de IA erra, por que uma senha vaza, por que um sistema lento consome dinheiro e por que uma decisão aparentemente pequena de representação de dados pode afetar segurança, performance e manutenção por anos.
+## Abertura do capítulo
+
+Antes de aprender uma linguagem de programação, construir uma API, treinar um modelo de IA ou proteger um sistema contra ataques, é necessário entender o que está sendo automatizado. Computação não é apenas “usar computador”. Também não é apenas “programar”. Programação é uma forma de expressar computação; computadores são máquinas que executam computação; sistemas digitais são ambientes onde muitas computações interagem. A ideia central é mais profunda: representar alguma parte do mundo, aplicar regras sobre essa representação e produzir uma saída, uma decisão ou uma mudança de estado.
+
+Quando um estudante clica em **Concluir aula**, uma intenção humana atravessa várias camadas: interface, navegador, rede, API, autenticação, autorização, banco de dados, logs, métricas e talvez sistemas de IA. Em cada camada, algo precisa ser representado: quem é o estudante, qual aula foi concluída, qual curso está ativo, qual matrícula permite a ação, qual regra define progresso, qual evento precisa ser auditado e qual resposta deve ser mostrada. O clique não é computação por si só; a computação começa quando essa intenção é codificada, validada, transformada e registrada.
+
+Este capítulo estabelece o modelo mental que sustentará todo o livro: **computação é representação + regra + transformação + estado, operando sob limites**. Esses limites podem ser físicos, como CPU, memória, disco, rede e energia; lógicos, como tipos, contratos, algoritmos, invariantes e complexidade; ou operacionais, como latência, custo, falhas, ataques, auditoria e manutenção. Entender esses limites desde o início evita uma visão ingênua em que software parece apenas uma coleção de telas e funções. Software profissional é comportamento executável com consequências.
+
+A partir daqui, você aprenderá a olhar para qualquer sistema — uma aplicação Full Stack, um pipeline de IA, uma API bancária, um mecanismo de autenticação ou uma plataforma de cursos — e perguntar: quais dados entram, como são representados, quais regras os transformam, quais estados são válidos, quais invariantes não podem ser quebrados, quais custos existem, quais erros podem ocorrer e quais evidências ficarão disponíveis quando algo falhar.
+
+## Mapa do capítulo
+
+A leitura seguirá uma progressão planejada:
+
+1. Intuição inicial: intenção humana, representação e execução mecânica.
+2. Definição técnica de computação.
+3. Representação de informação: dado, informação, tipos, contratos e semântica.
+4. Transformação por regras e mudança de estado.
+5. Execução por máquina: hardware, sistema operacional, runtime e aplicação.
+6. Abstrações: produtividade, vazamentos e custos escondidos.
+7. Correção, confiabilidade e limites computacionais.
+8. Aplicações em sistemas reais.
+9. Conexão com Full Stack, IA e Cybersegurança.
+10. Exercícios, desafio prático e consolidação.
+
+## 1. Objetivos de aprendizagem
 
 ## Objetivos
 
-### Objetivos de aprendizagem
+### Ao nível básico, você deve conseguir:
 
-Ao final deste capítulo, você deverá ser capaz de:
+- explicar computação como transformação de representações por regras;
+- diferenciar dado, informação, instrução, algoritmo, programa, processo e sistema;
+- entender o ciclo entrada → processamento → saída;
+- reconhecer que bits precisam de contexto para ter significado útil;
+- descrever, em linguagem simples, como uma intenção humana vira uma ação executada por software.
 
-1. Definir computação como transformação sistemática de informação por regras executáveis.
-2. Diferenciar dado, informação, representação, instrução, algoritmo, programa, processo e sistema.
-3. Explicar por que computadores digitais usam bits e como bits representam números, textos, imagens, instruções e estados.
-4. Descrever, em alto nível, como intenção humana vira código-fonte, código executável, uso de CPU, memória, entrada, saída e persistência.
-5. Entender que software não é “mágica”: é uma sequência de abstrações apoiada por hardware, sistemas operacionais, linguagens, protocolos e contratos.
-6. Conectar fundamentos de computação a desenvolvimento Full Stack, IA e Cybersegurança.
-7. Identificar riscos profissionais relacionados a representação incorreta, ambiguidade, perda de precisão, limites de máquina, automação sem validação e confiança excessiva em abstrações.
-8. Avaliar, em um exemplo simples e em um exemplo profissional, como dados são recebidos, validados, transformados, persistidos, observados e protegidos.
-9. Criar uma primeira peça do projeto final: um registro técnico de decisões computacionais, com atenção a segurança, performance, testes e observabilidade.
+### Ao nível profissional, você deve conseguir:
+
+- explicar representação, contratos, tipos, esquemas, estados e invariantes;
+- entender como software transforma intenção humana em comportamento executável;
+- reconhecer riscos de validação, ambiguidade, precisão numérica, segurança e performance;
+- avaliar uma operação real considerando entrada, autorização, regra de negócio, persistência, eventos, logs e resposta;
+- separar o que é regra de domínio, detalhe de infraestrutura e evidência operacional.
+
+### Ao nível especialista, você deve conseguir:
+
+- enxergar computação como transformação formal de estado;
+- relacionar abstrações a custos, vazamentos e falhas de diagnóstico;
+- entender correção, limites computacionais, confiabilidade e observabilidade;
+- conectar fundamentos de computação a arquitetura, IA, Cybersegurança, sistemas distribuídos e engenharia de software;
+- tomar decisões técnicas explicitando trade-offs, riscos e consequências de longo prazo.
 
 ## Pré-requisitos
 
-Este é o primeiro capítulo do livro e não exige experiência anterior. Ainda assim, alguns hábitos ajudarão:
+Este é o primeiro capítulo do livro e não exige experiência anterior de programação. Você precisará apenas de curiosidade técnica, atenção a detalhes e disposição para separar três coisas que iniciantes costumam misturar: intenção humana, representação computacional e execução mecânica. Os trechos de código e pseudocódigo aparecem como instrumentos de raciocínio; não é necessário decorar sintaxe.
 
-- curiosidade para perguntar “o que acontece por baixo?”;
-- disposição para separar conceito de ferramenta;
-- atenção a nomes, limites e contratos;
-- paciência para avançar do exemplo pequeno ao cenário real;
-- familiaridade básica com uso de computador, navegador e arquivos.
-
-Não é necessário saber programar. Os trechos de código serão explicados linha a linha e devem ser lidos como instrumentos de pensamento, não como cobrança de memorização de sintaxe.
-
-## Contexto
-
-Computação está em sistemas bancários, prontuários médicos, redes sociais, roteadores, satélites, carros, assistentes de IA, pipelines de dados, lojas virtuais, sistemas de autenticação e ferramentas de desenvolvimento. Em todos esses casos, o computador recebe algum tipo de entrada, representa essa entrada internamente, aplica regras e produz saída. A saída pode ser uma tela, uma resposta HTTP, um alerta de fraude, uma predição de modelo, um arquivo criptografado, um log, uma mensagem em uma fila ou um comando físico enviado a um dispositivo.
-
-O ponto central é que computadores não entendem “significado” como humanos. Eles manipulam representações. Quando você digita “comprar”, o computador não possui a experiência humana de compra; ele recebe sequências de bits que seguem uma codificação de caracteres, passa esses bits por camadas de software, compara padrões, executa instruções e muda estados. O significado nasce do acordo entre pessoas, software, dados, regras de negócio e contexto operacional.
-
-Essa distinção é essencial para três áreas que atravessam toda a formação:
-
-- **Full Stack:** uma aplicação web depende de representações coerentes entre interface, API, banco de dados, cache, filas e integrações externas.
-- **IA:** modelos aprendem padrões estatísticos a partir de representações numéricas de dados; se a representação for enviesada, incompleta ou mal validada, o comportamento do modelo refletirá esses problemas.
-- **Cybersegurança:** ataques frequentemente exploram diferença entre o que humanos acham que uma entrada significa e o que o computador realmente executa, interpreta ou autoriza.
-
-Computação, portanto, é tanto técnica quanto responsabilidade. Quem projeta sistemas computacionais define quais informações importam, quais regras serão automatizadas, quais erros serão tolerados, quais comportamentos serão bloqueados e quais evidências ficarão disponíveis para auditoria.
-
-## Problema real
-
-Imagine uma plataforma de cursos online. Um estudante clica em “concluir aula”. Parece uma ação simples. Por trás dela, o sistema precisa:
-
-1. receber um evento da interface;
-2. identificar usuário, curso, aula e horário;
-3. validar se o usuário está autenticado;
-4. verificar se a matrícula é válida;
-5. representar o progresso de forma persistente;
-6. evitar duplicidade caso o botão seja clicado duas vezes;
-7. atualizar estatísticas;
-8. emitir certificado quando regras forem cumpridas;
-9. registrar logs para suporte e auditoria;
-10. proteger a operação contra manipulação maliciosa;
-11. responder rápido o suficiente para não prejudicar a experiência;
-12. produzir métricas para descobrir falhas.
-
-O usuário expressou uma intenção humana: “terminei esta aula”. O software precisa transformar essa intenção em comportamento executável. Essa transformação envolve dados, instruções, algoritmos, protocolos, memória, armazenamento, concorrência, segurança, testes e observabilidade.
-
-Se o sistema representar o progresso apenas como texto livre, relatórios e validações serão frágeis. Se representar como porcentagem em número decimal sem cuidado, poderá sofrer inconsistências de arredondamento. Se aceitar o identificador da aula enviado pela tela sem verificar autorização no servidor, um atacante poderá marcar aulas de outro curso. Se não tratar idempotência, cliques repetidos poderão gerar eventos duplicados. Se não houver logs, a equipe não conseguirá explicar por que um certificado foi emitido indevidamente.
-
-Esse problema real mostra que computação começa antes da programação. Começa ao decidir como representar o mundo de forma manipulável por regras.
-
-## Conceito principal
-
-**Computação é o processo de representar informação e transformá-la por meio de regras executáveis.**
-
-Essa definição contém quatro ideias fundamentais:
-
-1. **Representar:** computadores trabalham com símbolos codificados. Um número, uma letra, uma imagem, um token de sessão ou uma instrução precisam ser representados em bits.
-2. **Informação:** dado bruto só vira informação quando interpretado dentro de um contexto. `42` pode ser idade, temperatura, identificador, quantidade ou código de erro.
-3. **Transformar:** computar é mudar estado ou produzir saída a partir de entrada. Somar, ordenar, validar, comprimir, criptografar, classificar e renderizar são transformações.
-4. **Regras executáveis:** a transformação precisa ser descrita de modo suficientemente preciso para que uma máquina execute sem ambiguidade humana.
-
-Um computador digital moderno é uma máquina física construída para executar operações sobre representações binárias. O software organiza essas operações em camadas compreensíveis por humanos. Um algoritmo descreve uma estratégia de transformação. Um programa expressa essa estratégia em uma linguagem. Um processo é o programa em execução, com memória, recursos e interação com o sistema operacional. Um sistema é um conjunto de processos, dados, interfaces e pessoas operando para cumprir objetivos.
+## 2. A intuição fundamental
 
 ## Intuição
 
-Pense em uma cozinha profissional. Ingredientes são entradas; receitas são instruções; utensílios são ferramentas; cozinheiros executam passos; pratos são saídas; estoque e higiene impõem restrições; câmeras, comandas e controles registram o processo. Uma receita ambígua, como “adicione sal suficiente”, pode funcionar com um cozinheiro experiente, mas não com uma máquina. Para automatizar, seria necessário definir quantidade, unidade, momento, temperatura, tolerância e tratamento de erro.
+Humanos trabalham com intenção e significado. Dizemos “concluir uma aula”, “pagar um boleto”, “bloquear um usuário” ou “responder uma pergunta”. Essas expressões carregam contexto social, objetivo, expectativa e consequência. Computadores, por outro lado, trabalham com representações e regras. Eles não recebem diretamente a experiência humana de “concluir”, “pagar”, “bloquear” ou “responder”; recebem sequências de bits interpretadas por contratos técnicos.
 
-Computadores exigem esse tipo de precisão. Eles são extremamente rápidos e consistentes, mas não inferem intenção humana fora das regras e modelos que recebem. Se você manda dividir por zero, acessar memória inválida, confiar em entrada adulterada ou repetir uma cobrança sem chave de idempotência, a máquina não “percebe” o absurdo moral ou comercial da ação. Ela executa instruções, falha conforme suas regras ou produz um resultado incorreto.
+Software é a ponte entre esses dois mundos. Ele traduz intenções em entradas, entradas em representações, representações em regras executáveis, regras em transformações, transformações em saídas e saídas em novos estados observáveis. Muitos bugs nascem porque a intenção esperada por pessoas não coincide com a representação aceita pelo sistema ou com a execução realmente implementada.
 
-A intuição profissional é esta: **software é intenção humana congelada em instruções executáveis, operando sobre representações limitadas do mundo.** Boas equipes tornam essa intenção explícita, testável, observável e segura. Equipes imaturas deixam intenção implícita, espalhada, difícil de auditar e vulnerável a interpretações equivocadas.
+```mermaid
+flowchart LR
+    A[Intenção humana] --> B[Entrada]
+    B --> C[Representação]
+    C --> D[Regras executáveis]
+    D --> E[Transformação]
+    E --> F[Saída]
+    F --> G[Novo estado observável]
+```
+
+Cada etapa merece atenção profissional:
+
+- **Intenção humana:** é o objetivo no domínio. “O estudante terminou a aula” parece simples, mas pode significar assistir 90% do vídeo, passar em uma avaliação, confirmar presença ou completar uma atividade.
+- **Entrada:** é o que atravessa a fronteira do sistema: clique, requisição HTTP, arquivo, evento de fila, resposta de IA, sensor ou job agendado. Entrada externa não deve ser tratada como verdade.
+- **Representação:** é a forma computável da entrada: JSON, número inteiro, texto, UUID, timestamp, enum, token, vetor numérico ou registro em banco.
+- **Regras executáveis:** são condições e procedimentos descritos com precisão suficiente para uma máquina executar: validar formato, verificar matrícula, calcular progresso, impedir duplicidade.
+- **Transformação:** é a aplicação das regras sobre o estado atual e a entrada. Pode gerar uma consulta, cálculo, atualização, decisão, classificação ou rejeição.
+- **Saída:** é o resultado retornado ou emitido: resposta para usuário, evento de domínio, log, métrica, arquivo, alerta ou mudança visual.
+- **Novo estado observável:** é a condição do sistema depois da transformação: progresso atualizado, certificado elegível, tentativa negada, erro auditável ou métrica incrementada.
+
+Essa cadeia ajuda a pensar antes de codar. Se uma etapa é vaga, o sistema dependerá de suposições. Se duas camadas interpretam a mesma representação de formas diferentes, surgem bugs. Se uma entrada é aceita como instrução, surgem ataques. Se uma transformação muda estado sem evidência, a equipe não consegue investigar incidentes.
+
+## 3. A definição técnica de computação
+
+## Conceito principal
+
+**Computação é a transformação sistemática de representações de informação por meio de regras executáveis, produzindo saídas, decisões ou mudanças de estado dentro de limites físicos, lógicos e operacionais.**
+
+Essa definição é densa porque precisa servir do primeiro programa ao sistema distribuído em produção. Vamos decompor cada termo.
+
+| Termo | Sentido técnico | Consequência profissional |
+| --- | --- | --- |
+| Transformação | Alterar, derivar, classificar, validar, consultar ou produzir algo a partir de entrada e estado. | É preciso saber o que muda, o que permanece e quais efeitos colaterais existem. |
+| Representação | Forma codificada manipulável pela máquina. | O mesmo valor pode ter significados diferentes; contratos são indispensáveis. |
+| Informação | Dado interpretado em contexto. | Sem contexto, o sistema pode tomar decisão correta sobre o dado errado. |
+| Regra executável | Procedimento preciso o suficiente para execução mecânica. | Ambiguidade humana precisa virar condição, algoritmo, política ou erro. |
+| Saída | Resultado observável da transformação. | Saídas precisam preservar unidade, significado, segurança e contrato. |
+| Estado | Conjunto de informações relevantes em determinado momento. | Sistemas precisam controlar transições válidas e impedir estados impossíveis. |
+| Limite físico | Restrições de CPU, memória, armazenamento, rede, energia e hardware. | Performance e custo não são detalhes finais; condicionam a solução. |
+| Limite lógico | Restrições de algoritmo, tipo, precisão, contrato, complexidade e computabilidade. | Algumas soluções são incorretas, imprecisas ou inviáveis por desenho. |
+| Limite operacional | Restrições de latência, disponibilidade, segurança, auditoria, equipe e manutenção. | Um sistema que funciona no laboratório pode falhar em produção. |
+
+> **Ideia-chave:**
+> Computadores não manipulam significado diretamente. Eles manipulam representações. O significado depende dos contratos criados por pessoas, linguagens, protocolos, bancos de dados, interfaces e regras de negócio.
+
+Essa definição também explica por que computação é anterior à escolha de tecnologia. Você pode implementar uma regra em JavaScript, Java, Python, SQL, Rust, Go ou em uma planilha; a pergunta fundamental continua sendo a mesma: qual representação está entrando, qual regra está sendo aplicada, qual estado pode mudar e quais limites podem ser atingidos?
+
+## Contexto
+
+Computação aparece em praticamente todos os sistemas contemporâneos: bancos, hospitais, telecomunicações, redes sociais, veículos, sensores industriais, assistentes de IA, sistemas de autenticação, pipelines de dados, plataformas educacionais e ferramentas de desenvolvimento. Em todos esses cenários, a máquina recebe entradas, interpreta representações, aplica regras e produz efeitos.
+
+A diferença entre um script simples e uma plataforma crítica não está no princípio, mas na escala de consequências. Um erro de representação em uma calculadora pessoal pode ser corrigido manualmente. Um erro de representação em cobrança, prontuário, autorização ou IA aplicada pode gerar prejuízo, discriminação, indisponibilidade, vazamento ou decisão incorreta. Por isso, este livro trata computação como base de responsabilidade profissional.
+
+## Problema real
+
+Imagine uma plataforma de cursos online. Um estudante clica em **Concluir aula**. A interface mostra um botão; o usuário percebe uma ação simples; o negócio espera progresso correto; a equipe de produto espera métricas; a equipe de segurança espera autorização; a equipe de suporte espera evidências; a infraestrutura espera consumo previsível.
+
+Por trás do botão, o sistema precisa:
+
+1. receber uma entrada da interface;
+2. identificar sessão, usuário, curso, aula, dispositivo e momento;
+3. validar o formato dos identificadores;
+4. autenticar o usuário;
+5. verificar autorização sobre aquele curso;
+6. confirmar matrícula ativa;
+7. aplicar a regra de conclusão;
+8. impedir duplicidade por clique repetido ou retentativa de rede;
+9. persistir progresso de forma consistente;
+10. emitir evento de domínio;
+11. atualizar métricas;
+12. registrar logs auditáveis sem vazar dados sensíveis;
+13. responder em tempo adequado.
+
+Se o sistema aceita `userId` enviado pela tela como autoridade, um atacante pode tentar concluir aula em nome de outro usuário. Se não modela estados, pode emitir certificado antes da hora. Se não trata idempotência, cliques repetidos podem duplicar eventos. Se não registra evidências, uma contestação futura vira opinião contra opinião. Esse problema mostra que computação começa antes da programação: começa ao decidir como representar o mundo de forma manipulável, verificável e segura.
+
+## 4. Dado, informação, representação e significado
+
+Dado bruto é um valor ainda sem interpretação suficiente. Informação é dado interpretado dentro de um contexto. Representação é a forma codificada escolhida para transportar ou armazenar esse dado. Significado é o papel esperado desse dado dentro do sistema e do domínio.
+
+O valor `42` ilustra o problema. Ele pode ser idade, temperatura, identificador, quantidade, porcentagem, nota, código de erro ou resposta de uma API. A máquina pode comparar, somar ou armazenar `42`, mas não sabe sozinha qual consequência humana esse valor possui. O contrato precisa dizer se `42` significa `42 anos`, `42 °C`, `id=42`, `42 centavos`, `42%` ou `ERR_42`.
+
+O mesmo ocorre com `01000001`. Dependendo do contrato, esse padrão pode ser o número decimal 65, a letra `A` em uma codificação de caracteres, um byte de arquivo, parte de uma instrução de máquina, uma máscara de bits ou simplesmente dado binário sem semântica de texto. Bits não são “números”, “textos” ou “imagens” por natureza; tornam-se isso por convenção.
+
+```mermaid
+flowchart LR
+    A[Bits] --> B[Bytes]
+    B --> C[Tipos]
+    C --> D[Estruturas]
+    D --> E[Mensagens]
+    E --> F[Contratos]
+    F --> G[Significado no sistema]
+```
+
+| Conceito | O que é | Exemplo simples | Risco profissional |
+| --- | --- | --- | --- |
+| Dado | Valor bruto | `42` | Ambiguidade |
+| Informação | Dado interpretado | 42 anos | Interpretação errada |
+| Representação | Forma codificada | inteiro, texto, JSON | Perda de precisão |
+| Contrato | Regra compartilhada | schema da API | Incompatibilidade |
+| Semântica | Significado esperado | idade do usuário | Bug de domínio |
+
+Alguns elementos tornam a representação profissionalmente segura:
+
+- **Contexto:** define onde o dado será usado. `status` em pagamento não tem a mesma semântica de `status` em matrícula.
+- **Codificação:** define como símbolos viram bytes. Textos dependem de padrões como UTF-8; imagens, áudio e arquivos dependem de formatos específicos.
+- **Tipo:** limita operações. Um inteiro, uma string, um booleano, um enum e um timestamp permitem comportamentos diferentes.
+- **Unidade:** evita erro silencioso. `duracaoEmSegundos` é mais claro que `duracao`; `precoEmCentavos` é mais seguro que `preco`.
+- **Contrato:** define forma, campos obrigatórios, limites e significado compartilhado entre produtores e consumidores.
+- **Esquema:** formaliza estrutura em banco, API, fila, evento ou documento.
+- **Semântica:** liga representação ao domínio: idade, saldo, permissão, progresso, certificado, sessão ou papel.
+
+A falta desses elementos produz bugs difíceis. Um frontend envia preço em reais, o backend espera centavos. Um serviço envia data em horário local, outro interpreta UTC. Um campo `admin` chega como texto e alguém o trata como permissão. Um modelo de IA recebe documentos recuperados sem distinguir instruções do sistema, conteúdo do usuário e referência externa. A origem é a mesma: representação sem contrato robusto.
+
+## 5. Computação como transformação de estado
 
 ## Explicação profunda
 
-Computação pode ser estudada em vários níveis. No nível matemático, ela investiga quais problemas podem ser resolvidos por procedimentos mecânicos, quais exigem recursos impraticáveis e quais são indecidíveis em modelos formais. No nível físico, ela depende de energia, circuitos, sinais elétricos, armazenamento e limites materiais. No nível de sistemas, envolve CPU, memória, sistema operacional, arquivos, rede e dispositivos. No nível de software, envolve linguagens, compiladores, interpretadores, bibliotecas, protocolos, bancos de dados, interfaces e observabilidade. No nível social, automatiza decisões que afetam pessoas, dinheiro, privacidade e segurança.
+Em nível especialista, muitos sistemas podem ser entendidos pela fórmula:
 
-A primeira ponte entre esses níveis é a **representação**. Computadores digitais usam bits porque é mais confiável distinguir dois estados físicos estáveis do que muitos estados contínuos em ambientes ruidosos. Um bit pode representar `0` ou `1`, falso ou verdadeiro, ligado ou desligado, ausência ou presença. Sozinho, um bit é limitado. Em grupos, bits representam números, caracteres, pixels, sons, instruções e estruturas complexas. O byte, com 8 bits, permite 256 combinações. Sequências de bytes, quando interpretadas por convenções, permitem arquivos, mensagens de rede, bancos de dados e modelos de IA.
+```txt
+estado atual + entrada + regra = novo estado + saída
+```
 
-Representação não é neutralidade. O mesmo padrão de bits pode significar coisas diferentes conforme o tipo e o contexto. A sequência `01000001` pode ser o número decimal 65, a letra `A` em ASCII/UTF-8, parte de uma instrução de máquina ou um componente de uma imagem. Por isso, sistemas precisam de contratos: tipos, formatos, esquemas, protocolos e validações. Sem contrato, dados atravessam camadas com significado ambíguo.
+Exemplo simples:
 
-A segunda ponte é a **instrução**. Uma CPU executa operações elementares: mover dados, somar, comparar, saltar para outra instrução, ler ou escrever memória, acionar mecanismos de entrada e saída por intermédio do sistema operacional. Linguagens de alto nível escondem essa granularidade. Quando escrevemos `total = price * quantity`, expressamos intenção comercial de calcular valor. Em camadas inferiores, isso envolve carregar valores, verificar representação numérica, executar multiplicação, armazenar resultado e talvez lidar com overflow, precisão decimal ou conversão de tipo.
+```txt
+saldo atual + compra aprovada = novo saldo + recibo
+```
 
-A terceira ponte é a **abstração**. Abstrair é esconder detalhes para permitir raciocínio em um nível mais produtivo. Arquivos abstraem blocos de armazenamento; processos abstraem execução; sockets abstraem comunicação; HTTP abstrai troca de mensagens; JSON abstrai estrutura textual; ORMs abstraem SQL; frameworks web abstraem roteamento; bibliotecas de IA abstraem tensores e otimização. Abstrações são indispensáveis, mas têm custo: quando falham, o profissional precisa descer camadas. Um erro de encoding pode aparecer como caractere quebrado na interface; uma consulta ORM pode virar SQL ineficiente; uma chamada HTTP pode falhar por DNS, TLS, timeout, proxy ou limite de taxa; um modelo de IA pode responder com confiança a partir de representação insuficiente.
+Exemplo profissional:
 
-A quarta ponte é a **correção**. Um programa correto não é apenas um programa que “rodou uma vez”. Correção significa que, sob condições especificadas, ele preserva invariantes e produz resultados esperados. Em sistemas reais, as condições incluem entradas inválidas, concorrência, falhas de rede, dados antigos, usuários maliciosos, relógios inconsistentes, limites de armazenamento e mudanças de requisito. Computação profissional transforma regras em comportamento, mas também define como detectar quando o comportamento se desvia do esperado.
+```txt
+matrícula ativa + conclusão de aula + regra de progresso = progresso atualizado + evento auditável
+```
 
-A quinta ponte é o **limite**. Nem todo problema é computável; nem todo problema computável é viável no tempo disponível; nem toda solução rápida é segura; nem toda solução segura é barata; nem toda automação é desejável. Ordenar mil itens é trivial; buscar a melhor rota global sob múltiplas restrições pode explodir combinatoriamente; treinar um grande modelo de IA exige dados, energia, hardware e governança; quebrar uma criptografia moderna por força bruta deve ser impraticável quando parâmetros são adequados. Entender computação é entender possibilidades e limites.
+**Estado** é o conjunto de informações relevantes em determinado momento. Pode estar em memória, banco de dados, cache, arquivo, fila, sessão, navegador, modelo de IA ou sistema externo. **Transição de estado** é a mudança de uma configuração válida para outra. **Entrada** é o estímulo que tenta provocar a transição. **Regra** decide se a transição é permitida e como será aplicada. **Saída** comunica o resultado. **Efeito colateral** é qualquer consequência além do retorno imediato, como gravar banco, enviar e-mail, publicar evento ou emitir métrica.
 
-Essas ideias sustentam decisões profissionais. Em Full Stack, escolher entre número decimal, inteiro em centavos ou string para dinheiro não é detalhe: afeta precisão, validação, serialização, banco de dados e cálculo fiscal. Em IA, escolher como tokenizar texto e vetorizar documentos afeta recuperação, viés, custo e qualidade de resposta. Em Cybersegurança, escolher como representar identidade, sessão, permissão e segredo afeta autenticação, autorização, auditoria e superfície de ataque.
+Para raciocinar com rigor, usamos mais três ideias:
+
+- **Pré-condição:** o que precisa ser verdadeiro antes da regra. Exemplo: usuário autenticado, matrícula ativa, aula pertencente ao curso.
+- **Pós-condição:** o que deve ser verdadeiro depois. Exemplo: aula marcada como concluída, progresso recalculado, evento registrado.
+- **Invariante:** regra que deve permanecer verdadeira sempre. Exemplo: progresso não ultrapassa 100%; certificado não existe sem critérios cumpridos.
+
+```mermaid
+stateDiagram-v2
+    [*] --> AulaNaoIniciada
+    AulaNaoIniciada --> AulaEmAndamento: iniciar aula
+    AulaEmAndamento --> AulaConcluida: concluir aula válida
+    AulaConcluida --> CertificadoElegivel: todas as aulas concluídas
+    AulaEmAndamento --> AulaEmAndamento: tentativa duplicada ignorada
+```
+
+Invariantes dão forma à responsabilidade do sistema:
+
+- uma aula não pode ser concluída por usuário sem matrícula;
+- progresso não pode ultrapassar 100%;
+- certificado não pode ser emitido antes das regras;
+- evento duplicado não deve gerar resultado duplicado;
+- usuário autenticado não deve acessar recurso para o qual não possui autorização;
+- dados sensíveis não devem aparecer em logs de aplicação.
+
+Essa visão é poderosa porque atravessa áreas. Em Full Stack, cada requisição tenta consultar ou alterar estado. Em IA, um pipeline transforma texto em tokens, vetores, contexto, resposta e evidências, mesmo quando não altera banco. Em Cybersegurança, o defensor pergunta quais transições um atacante consegue forçar: de não autenticado para autenticado, de usuário comum para administrador, de dado externo para instrução executada, de segredo protegido para segredo exposto.
+
+## 6. Como a máquina executa computação
 
 ## Funcionamento interno
 
-Um computador moderno executando uma aplicação web envolve uma cadeia de transformação. O usuário toca em uma tela ou pressiona uma tecla. O dispositivo converte uma ação física em sinais. O sistema operacional entrega eventos ao navegador. O navegador executa HTML, CSS e JavaScript para atualizar interface e talvez enviar uma requisição HTTP. A requisição é representada como bytes, passa por TLS, rede, roteadores, balanceadores, servidor web, runtime da aplicação, camadas de validação, regras de negócio, banco de dados e sistemas auxiliares. A resposta percorre o caminho de volta.
+A máquina executa computação por camadas. No nível físico, há circuitos capazes de representar estados binários. No nível de hardware, CPU, memória, armazenamento e dispositivos de entrada e saída cooperam para executar instruções e mover dados. No nível de sistema, o sistema operacional gerencia processos, permissões, arquivos, rede e recursos. No nível de linguagem, compiladores, interpretadores, runtimes e bibliotecas oferecem abstrações mais próximas do raciocínio humano. No nível de aplicação, regras de negócio, interfaces e integrações tornam o comportamento útil.
 
-Internamente, a CPU segue um ciclo conceitual clássico: busca uma instrução, decodifica a instrução, executa a operação, acessa memória se necessário e grava resultado. CPUs reais fazem isso de forma altamente otimizada, com pipelines, caches, execução especulativa e múltiplos núcleos, mas o modelo simplificado ajuda: instruções controlam transformações sobre dados. A memória principal guarda dados e instruções em endereços. O sistema operacional isola processos, gerencia permissões, agenda execução, controla arquivos, oferece APIs para rede e impede que cada programa manipule hardware arbitrariamente.
-
-O software profissional raramente fala diretamente com instruções de máquina. Usamos linguagens. Um compilador traduz código-fonte para uma forma executável antes da execução. Um interpretador executa ou traduz dinamicamente instruções. Muitas plataformas combinam estratégias: Java usa bytecode e máquina virtual; JavaScript em navegadores modernos usa interpretação, compilação just-in-time e otimizações; Python interpreta bytecode em uma máquina virtual. Cada escolha afeta desempenho, portabilidade, segurança, depuração e distribuição.
-
-Dados também atravessam representações. Um formulário envia texto; a API converte texto em tipos internos; a regra de negócio valida invariantes; o banco armazena em colunas, documentos ou índices; logs serializam eventos; métricas agregam contadores; dashboards exibem tendências. Em cada fronteira pode ocorrer perda de informação, mudança de tipo, truncamento, arredondamento, encoding incorreto, exposição de segredo, erro de timezone, inconsistência de versão ou interpretação maliciosa.
-
-Por isso, o funcionamento interno relevante para engenheiros não é apenas eletrônico. É a cadeia completa de estados e contratos:
-
-```text
-intenção humana
-  -> entrada física ou digital
-  -> representação em bits
-  -> interpretação por software
-  -> validação e autorização
-  -> transformação por regras
-  -> alteração de estado
-  -> saída observável
-  -> evidência para auditoria
+```mermaid
+flowchart TD
+    A[Código da aplicação] --> B[Linguagem / Bibliotecas]
+    B --> C[Runtime / VM / Interpretador]
+    C --> D[Sistema Operacional]
+    D --> E[CPU]
+    D --> F[Memória]
+    D --> G[Disco]
+    D --> H[Rede / I/O]
 ```
 
-Quando essa cadeia é explícita, é possível testar, proteger e otimizar. Quando é implícita, o sistema se torna dependente de sorte e conhecimento tribal.
+O ciclo conceitual é:
 
-## Modelo mental
+1. o programa descreve regras;
+2. o runtime, interpretador ou compilador traduz abstrações;
+3. o sistema operacional gerencia recursos e isola processos;
+4. a CPU executa instruções elementares;
+5. a memória mantém estado temporário;
+6. o armazenamento preserva estado durável;
+7. a rede comunica estados entre sistemas.
 
-Use o seguinte modelo mental durante todo o livro:
+Não precisamos, neste capítulo, entrar em detalhes de pipelines de CPU, caches, paginação ou interrupções; isso será aprofundado depois. Mas é essencial compreender que cada clique em uma aplicação real aciona trabalho físico. Uma requisição HTTP consome CPU para parsear bytes, memória para representar objetos, rede para transmitir pacotes, disco ou SSD para consultar dados, locks ou transações para preservar consistência, e tempo humano quando algo falha e precisa ser investigado.
 
-1. **Toda computação começa com uma fronteira.** Algo externo entra no sistema: clique, arquivo, mensagem, requisição, sensor, job agendado ou resposta de IA.
-2. **Toda fronteira exige interpretação.** Bytes precisam virar tipos e significados.
-3. **Toda interpretação precisa de contrato.** Sem contrato, cada camada inventa uma leitura.
-4. **Todo contrato precisa de validação.** Entradas podem estar erradas, antigas, maliciosas ou fora do contexto.
-5. **Toda transformação altera ou consulta estado.** Mesmo uma busca aparentemente simples consome recursos e pode revelar informação.
-6. **Todo estado precisa de invariantes.** Invariantes dizem o que jamais deve ser violado: saldo não pode ficar negativo sem regra explícita; certificado não pode existir sem conclusão; sessão expirada não autoriza ação.
-7. **Todo comportamento relevante precisa ser observável.** Se não há evidência, suporte, segurança e melhoria ficam frágeis.
-8. **Toda abstração deve ter uma rota de descida.** Quando a camada alta falha, o profissional precisa saber investigar camadas inferiores.
+Essa cadeia também mostra por que abstrações não removem fundamentos. Escrever `await repository.save(progress)` parece uma única linha. Por baixo, pode haver serialização, conexão de rede, autenticação com banco, transação, índice, escrita em log de transação, replicação, confirmação, retorno, retry e tratamento de erro. Um bom profissional não precisa pensar em tudo isso a cada linha, mas precisa saber descer de camada quando a aplicação fica lenta, inconsistente ou insegura.
 
-Esse modelo será usado nos próximos capítulos para hardware, sistemas operacionais, redes, HTTP, programação, bancos de dados, arquitetura, testes, segurança e observabilidade.
+## 7. Abstração: o poder e o risco
+
+Abstração é a capacidade de trabalhar com modelos mais simples do que a realidade completa. Sem abstrações, desenvolvimento moderno seria impraticável. Arquivos abstraem blocos de armazenamento; processos abstraem execução; sockets abstraem comunicação; HTTP abstrai troca de mensagens; JSON abstrai estruturas textuais; frameworks web abstraem roteamento; ORMs abstraem SQL; serviços de cloud abstraem servidores físicos; bibliotecas de IA abstraem tokenização, embeddings e chamadas a modelos.
+
+O poder da abstração é produtividade. Ela permite que uma equipe pense em “usuário conclui aula” em vez de pensar a todo momento em registradores, buffers, pacotes TCP, TLS, syscalls e páginas de memória. Mas toda abstração também cria um modelo mental parcial. O que ela esconde continua existindo.
+
+Exemplos profissionais:
+
+- Um **ORM** esconde SQL, mas pode gerar consulta lenta, carregar dados demais ou provocar N+1 queries.
+- Um **framework web** esconde detalhes de HTTP, mas headers, cookies, CORS, cache, status codes e timeouts continuam importando.
+- Uma **biblioteca de IA** esconde embeddings e tokens, mas limite de contexto, qualidade de recuperação, custo e validação de resposta continuam importando.
+- Uma **plataforma cloud** esconde servidor físico, mas latência, custo, região, isolamento, IAM, logs e superfície de ataque continuam existindo.
+
+> **Erro comum:**
+> Achar que uma abstração elimina o problema que ela esconde. Na prática, ela apenas permite trabalhar em um nível mais alto até que um bug, uma falha de performance ou um incidente de segurança force você a descer de camada.
+
+```mermaid
+flowchart TD
+    A[Produto / Regra de negócio]
+    B[Aplicação]
+    C[Framework]
+    D[Runtime]
+    E[Sistema Operacional]
+    F[Hardware]
+    A --> B --> C --> D --> E --> F
+    F -. falhas, limites e custos sobem .-> A
+```
+
+Bons profissionais sabem subir e descer camadas. Sobem para entregar valor, modelar domínio e conversar com negócio. Descem para diagnosticar latência, vazamento de memória, deadlock, encoding quebrado, inconsistência de transação, erro de autorização ou custo excessivo de IA. Esse movimento é uma das habilidades centrais de engenharia.
+
+## 8. Correção, confiabilidade e limites
+
+Um programa que roda não é necessariamente correto. Correção depende de especificação: o sistema faz o que deveria fazer, sob condições esperadas e limites definidos? Um endpoint que retorna `200 OK` após marcar uma aula como concluída pode ainda estar incorreto se ignorou autorização, duplicou evento, perdeu auditoria ou calculou progresso errado.
+
+Testes produzem evidências, não garantias absolutas. Eles verificam exemplos, propriedades, contratos e integrações, mas não cobrem todos os estados possíveis de sistemas reais. Observabilidade complementa testes mostrando comportamento em produção. Especificação, testes, tipos, revisões, análise estática, logs, métricas e auditoria formam uma rede de confiança, não uma prova mágica de perfeição.
+
+Sistemas reais falham parcialmente. A API pode estar de pé enquanto o banco está lento. A fila pode aceitar mensagens enquanto o consumidor está parado. Um serviço de IA pode responder com alta latência. Uma região de cloud pode degradar. Uma requisição pode ser repetida por timeout. Dois usuários podem tentar atualizar o mesmo recurso simultaneamente. Um relógio pode estar desalinhado. Um cache pode conter valor antigo.
+
+| Dimensão | Pergunta profissional |
+| --- | --- |
+| Correção | O sistema faz o que deveria fazer? |
+| Confiabilidade | Continua funcionando sob falhas? |
+| Performance | Responde dentro do tempo necessário? |
+| Segurança | Impede uso indevido e vazamento? |
+| Observabilidade | Consigo explicar o que aconteceu? |
+| Manutenibilidade | Consigo mudar sem quebrar tudo? |
+
+Limites importantes incluem tempo, memória, precisão, custo e energia. Overflow numérico, perda de precisão, race conditions, dados inconsistentes, indisponibilidade, decisões incorretas de IA e brechas de segurança são manifestações concretas desses limites. Em computação profissional, “funcionou no meu computador” é apenas o início da conversa; a pergunta relevante é se o comportamento é correto, seguro, eficiente, observável e sustentável no ambiente real.
+
+## 9. Computação em Full Stack, IA e Cybersegurança
+
+### Full Stack
+
+Em uma aplicação Full Stack, computação aparece em cada fronteira entre usuário, frontend, backend, banco de dados e operação.
+
+```mermaid
+sequenceDiagram
+    participant U as Usuário
+    participant UI as Frontend
+    participant API as Backend
+    participant DB as Banco de Dados
+    participant LOG as Logs/Métricas
+
+    U->>UI: Clica em "Concluir aula"
+    UI->>API: Envia requisição
+    API->>API: Valida entrada e autorização
+    API->>DB: Atualiza progresso
+    API->>LOG: Registra evento
+    API-->>UI: Retorna resultado
+    UI-->>U: Mostra novo estado
+```
+
+Cada etapa representa, valida, transforma, persiste ou observa. O frontend representa intenção em evento e payload. A API transforma bytes em objeto, objeto em comando validado, comando em regra de negócio. O banco preserva estado. Logs e métricas tornam o comportamento analisável. Uma falha de contrato entre essas camadas é uma falha de computação aplicada.
+
+### IA
+
+IA também é computação baseada em representação, transformação e limites. Texto precisa virar tokens; tokens alimentam modelos; documentos podem virar embeddings; buscas recuperam contexto; prompts combinam instruções, dados e restrições; respostas precisam ser validadas conforme risco.
+
+```mermaid
+flowchart LR
+    A[Texto do usuário] --> B[Tokens]
+    B --> C[Embeddings]
+    C --> D[Busca / Recuperação]
+    D --> E[Prompt contextualizado]
+    E --> F[Modelo]
+    F --> G[Resposta]
+    G --> H[Validação / Auditoria]
+```
+
+Modelos de IA não “entendem” como humanos no sentido operacional necessário para segurança e auditoria. Eles processam representações e produzem saídas a partir de padrões aprendidos e contexto fornecido. Isso não reduz seu valor; apenas exige governança. Dados enviesados, contexto insuficiente, prompt injection, alucinação, custo por chamada, latência e privacidade são problemas de representação, transformação e limite.
+
+### Cybersegurança
+
+Cybersegurança analisa quem pode atravessar fronteiras, quais entradas são aceitas, como identidades são representadas, quais permissões autorizam ações e como evidências são preservadas.
+
+```mermaid
+flowchart LR
+    A[Entrada externa] --> B[Validação]
+    B --> C[Autenticação]
+    C --> D[Autorização]
+    D --> E[Execução controlada]
+    E --> F[Auditoria]
+```
+
+Muitos ataques exploram confusão entre dado e instrução, identidade e permissão, representação e significado. SQL injection transforma texto em comando. XSS transforma conteúdo em script no navegador. Command injection transforma parâmetro em instrução de sistema operacional. Prompt injection tenta transformar dado externo em instrução para um modelo. Broken access control transforma identidade válida em autorização indevida. A defesa começa no fundamento: contratos claros, validação, separação de responsabilidades e menor privilégio.
+
+## 10. Exemplo simples
 
 ## Exemplo simples
 
-Vamos transformar uma intenção humana simples em computação: “calcular o preço total de uma compra com duas unidades de um produto de R$ 19,90”.
+Vamos calcular o total de um item de compra. A intenção humana é simples: “duas unidades de um produto de R$ 19,90 custam R$ 39,80”. O computador precisa de escolhas explícitas.
 
-A intenção humana é compreensível, mas a máquina precisa de representação precisa:
+Antes do código, observe as decisões:
 
-- produto: identificador ou nome;
-- preço unitário: valor monetário;
-- quantidade: inteiro;
-- moeda: BRL;
-- regra: total = preço unitário multiplicado por quantidade.
-
-Um primeiro erro comum seria usar número decimal de ponto flutuante para dinheiro em qualquer contexto sem pensar. Muitas linguagens representam números reais em binário aproximado. Valores como `19.90` podem não ter representação exata. Para aplicações financeiras, uma alternativa comum é representar dinheiro em centavos como inteiro.
-
-```js
-const precoUnitarioEmCentavos = 1990;
-const quantidade = 2;
-const totalEmCentavos = precoUnitarioEmCentavos * quantidade;
-
-console.log(totalEmCentavos); // 3980
-console.log(`R$ ${(totalEmCentavos / 100).toFixed(2)}`); // R$ 39.80
-```
-
-O exemplo é pequeno, mas contém fundamentos profissionais:
-
-- o valor foi representado como inteiro para evitar erro de precisão em cálculo simples;
-- a unidade está no nome da variável, reduzindo ambiguidade;
-- a saída formatada é separada da representação interna;
-- a regra de transformação é explícita;
-- ainda faltam validações: quantidade negativa, moeda, produto inexistente, desconto, imposto, arredondamento fiscal e autorização.
-
-Computação não é apenas fazer a conta. É escolher representação, aplicar regra, preservar significado e conhecer limites.
-
-## Exemplo profissional
-
-Agora considere uma API de matrícula em uma plataforma de formação técnica. O endpoint `POST /enrollments` recebe o identificador do estudante e do curso. A intenção humana é “matricular este estudante neste curso”. O sistema real precisa lidar com autenticação, autorização, regras de negócio, idempotência, persistência, eventos, métricas e auditoria.
-
-Um contrato de entrada poderia ser:
-
-```json
-{
-  "studentId": "stu_123",
-  "courseId": "course_fullstack_001",
-  "requestId": "req_2026_06_23_0001"
-}
-```
-
-O campo `requestId` evita duplicidade quando o cliente repete a requisição por timeout. A regra de negócio não pode confiar apenas no `studentId` enviado: em autoatendimento, a identidade deve ser derivada do token autenticado; em operação administrativa sobre terceiro, o servidor precisa verificar permissão específica para agir em nome do estudante. O `courseId` deve existir, estar disponível e permitir matrícula. A operação precisa preservar consistência entre matrícula e evento: em arquiteturas profissionais, uma transação local pode gravar a matrícula e um registro de outbox no mesmo banco; a publicação externa do evento ocorre depois, de forma assíncrona, com retentativas, consumidores idempotentes e reconciliação para tolerar falhas entre banco e broker.
-
-Em termos computacionais, o fluxo profissional é:
-
-1. receber bytes da requisição;
-2. decodificar JSON;
-3. validar esquema e tipos;
-4. autenticar o chamador;
-5. derivar identidade do contexto autenticado;
-6. autorizar a ação;
-7. verificar invariantes: curso existe, matrícula ainda não existe, limite de vagas, período de inscrição;
-8. executar transformação de estado;
-9. persistir matrícula e registro de outbox com chave de idempotência;
-10. publicar posteriormente o evento `EnrollmentCreated` a partir da outbox, aceitando repetição controlada;
-11. registrar log sem expor dados sensíveis;
-12. atualizar métricas;
-13. responder com status adequado.
-
-Esse exemplo conecta a definição de computação à engenharia. Cada etapa é uma transformação de representação sob contrato. Um erro em qualquer etapa pode virar bug, incidente de segurança, perda financeira ou experiência ruim. Em IA, fluxo semelhante ocorre quando uma aplicação recebe pergunta do usuário, transforma texto em tokens, recupera documentos, monta prompt, chama modelo, valida resposta e registra evidências. Em Cybersegurança, a mesma cadeia é analisada ao buscar pontos de entrada, interpretação insegura, falha de autorização e vazamento de informação.
-
-## Implementação prática
-
-A implementação abaixo é propositalmente pequena, mas modela decisões profissionais: representação de dinheiro em centavos, validação explícita, separação entre dado de entrada e resultado, e retorno estruturado de erro. Ela pode ser lida como um microcosmo de computação: entrada, interpretação, transformação e saída.
+- dinheiro não deve ser tratado ingenuamente com ponto flutuante porque muitos decimais não têm representação binária exata;
+- nomes devem carregar unidade para evitar confusão entre reais, centavos, percentual, quantidade e código;
+- entrada externa deve ser validada porque pode estar ausente, malformada, negativa, grande demais ou adversarial;
+- erro deve ser estruturado para que o chamador saiba diferenciar falhas;
+- domínio deve ter limites para reduzir abuso, overflow e consumo inesperado.
 
 ```js
 function calcularTotalDoItem(entrada) {
+  // Toda fronteira precisa interpretar e validar a entrada recebida.
   if (!entrada || typeof entrada !== 'object' || Array.isArray(entrada)) {
     return { ok: false, error: 'entrada_invalida' };
   }
 
   const { precoUnitarioEmCentavos, quantidade } = entrada;
 
+  // Dinheiro é representado em centavos para evitar imprecisão de ponto flutuante
+  // em uma operação financeira simples.
   if (
     !Number.isSafeInteger(precoUnitarioEmCentavos) ||
     precoUnitarioEmCentavos < 0 ||
@@ -254,6 +418,7 @@ function calcularTotalDoItem(entrada) {
     return { ok: false, error: 'preco_unitario_invalido' };
   }
 
+  // Quantidade precisa ser inteira, positiva e limitada pelo domínio.
   if (!Number.isSafeInteger(quantidade) || quantidade <= 0 || quantidade > 1000) {
     return { ok: false, error: 'quantidade_invalida' };
   }
@@ -277,119 +442,165 @@ console.log(calcularTotalDoItem({ precoUnitarioEmCentavos: 1990, quantidade: 2 }
 console.log(calcularTotalDoItem({ precoUnitarioEmCentavos: 1990, quantidade: -1 }));
 ```
 
-Essa função não resolve todos os problemas de comércio eletrônico. Ela não calcula imposto, desconto, frete, cupom, arredondamento regulatório, estoque ou autorização. Seu valor didático está em mostrar que até uma transformação simples exige fronteiras claras. Em um sistema real, essa função faria parte de um domínio maior, seria coberta por testes automatizados, teria logs em chamadas relevantes e receberia entradas de uma camada que já autenticou e autorizou o usuário. Em sistemas de dinheiro com escala maior, múltiplas moedas, regras fiscais complexas ou exigência regulatória, a equipe deve considerar `BigInt`, bibliotecas decimais, tipos `DECIMAL` no banco de dados ou tipos monetários específicos da plataforma, sempre com testes de arredondamento e limites.
+O exemplo é pequeno, mas já contém pensamento profissional: entrada, representação, validação, transformação, saída, unidade e limite. Ele não resolve imposto, frete, desconto, arredondamento fiscal, estoque, autorização ou múltiplas moedas. Em sistemas financeiros mais exigentes, a equipe pode precisar de `BigInt`, bibliotecas decimais, tipos `DECIMAL` em banco e testes regulatórios de arredondamento. O ponto é que uma decisão aparentemente simples — usar centavos como inteiro — é uma decisão computacional com impacto em correção e manutenção.
 
-## Código comentado
+## 11. Exemplo profissional
 
-```js
-function calcularTotalDoItem(entrada) {
-  // Toda computação começa interpretando uma entrada.
-  // Não assumimos que o chamador enviou um objeto válido.
-  if (!entrada || typeof entrada !== 'object' || Array.isArray(entrada)) {
-    return { ok: false, error: 'entrada_invalida' };
-  }
+## Exemplo profissional
 
-  // Extraímos apenas os campos necessários para a transformação.
-  const { precoUnitarioEmCentavos, quantidade } = entrada;
+Cenário: **usuário conclui uma aula** em uma plataforma de cursos. O fluxo precisa lidar com entrada, validação, autorização, regra de negócio, idempotência, persistência, evento, log, métrica e resposta.
 
-  // Dinheiro é representado em centavos para evitar imprecisão de ponto flutuante.
-  // A validação exige inteiro seguro, não negativo e dentro do limite de domínio.
-  if (
-    !Number.isSafeInteger(precoUnitarioEmCentavos) ||
-    precoUnitarioEmCentavos < 0 ||
-    precoUnitarioEmCentavos > 10_000_000
-  ) {
-    return { ok: false, error: 'preco_unitario_invalido' };
-  }
-
-  // Quantidade precisa ser inteira, positiva e limitada.
-  // O limite reduz risco de abuso e de consumo inesperado de recursos.
-  if (!Number.isSafeInteger(quantidade) || quantidade <= 0 || quantidade > 1000) {
-    return { ok: false, error: 'quantidade_invalida' };
-  }
-
-  // A regra de transformação é simples, mas explícita.
-  const totalEmCentavos = precoUnitarioEmCentavos * quantidade;
-
-  // Mesmo usando inteiros seguros nos operandos, JavaScript tem limite de segurança numérica.
-  // A checagem evita aceitar resultado que não pode ser representado com precisão.
-  if (!Number.isSafeInteger(totalEmCentavos)) {
-    return { ok: false, error: 'total_fora_do_limite_seguro' };
-  }
-
-  // A saída preserva unidade e moeda, evitando ambiguidade para próximas camadas.
-  return {
-    ok: true,
-    value: {
-      totalEmCentavos,
-      moeda: 'BRL'
-    }
-  };
-}
+```txt
+concluirAula(usuarioId, cursoId, aulaId, requestId):
+    validarFormato(usuarioId, cursoId, aulaId)
+    usuario = autenticarSessao()
+    verificarPermissao(usuario, cursoId)
+    verificarMatriculaAtiva(usuario, cursoId)
+    garantirIdempotencia(requestId)
+    progresso = carregarProgresso(usuario, cursoId)
+    novoProgresso = aplicarRegraDeConclusao(progresso, aulaId)
+    salvarTransacao(novoProgresso)
+    registrarEvento("AULA_CONCLUIDA")
+    emitirMetrica("course.lesson.completed")
+    retornarResultado(novoProgresso)
 ```
 
-O código ensina cinco práticas: validar na fronteira, nomear unidades, limitar domínio, tratar erro como parte do contrato e preservar significado na saída. Essas práticas reaparecerão em APIs, bancos de dados, autenticação, filas, sistemas de IA e observabilidade.
+Linha por linha, a computação aparece assim:
 
-## Aplicação no projeto final
+- `validarFormato` transforma entrada textual em representação confiável ou rejeita cedo. Isso evita gasto com autenticação, banco e regras quando a entrada nem é válida.
+- `autenticarSessao` não deve confiar em `usuarioId` do corpo. Identidade precisa vir de credencial verificada, como sessão, token ou certificado.
+- `verificarPermissao` separa identidade de autorização. Saber quem é o usuário não prova que ele pode concluir aquela aula naquele curso.
+- `verificarMatriculaAtiva` garante pré-condição de domínio.
+- `garantirIdempotencia` impede que retentativas de rede ou cliques duplicados produzam múltiplas conclusões, eventos ou métricas indevidas.
+- `carregarProgresso` recupera estado atual.
+- `aplicarRegraDeConclusao` executa a transição, preservando invariantes como progresso máximo de 100%.
+- `salvarTransacao` torna a mudança durável e consistente.
+- `registrarEvento` cria evidência de domínio para auditoria, integrações e processamento assíncrono.
+- `emitirMetrica` torna o comportamento mensurável.
+- `retornarResultado` comunica novo estado ao chamador sem expor detalhes internos desnecessários.
 
-O projeto final do Livro 1 será um sistema mínimo, versionado, testável, seguro por design e observável. Neste capítulo, você inicia um artefato chamado **Diário de Decisões Computacionais**. Ele deve registrar, em linguagem técnica, como o sistema representará entradas, estados e saídas.
+Um desenho ainda mais robusto usaria transação para gravar progresso e outbox no mesmo banco, publicaria eventos assincronamente, teria consumidores idempotentes, incluiria `correlationId` em logs e traces, e registraria motivo de rejeição sem vazar dados sensíveis. A ideia central permanece: um caso de uso profissional é uma composição de transformações sobre representações sob contratos.
 
-Crie um arquivo no projeto final com estas perguntas:
+## 12. Aplicação no projeto final
 
-1. Quais entidades existem no domínio inicial?
-2. Quais dados entram por fronteiras externas?
-3. Quais dados são confiáveis e quais precisam ser validados?
-4. Que unidades aparecem nos nomes dos campos?
-5. Que estados são permitidos e proibidos?
-6. Quais invariantes não podem ser violados?
-7. Quais erros devem ser retornados ao usuário e quais devem ser apenas registrados internamente?
-8. Que eventos precisam ser observáveis?
-9. Que dados são sensíveis?
-10. Que decisões dependem de trade-offs entre simplicidade, segurança e performance?
+## Implementação prática
 
-Esse diário será refinado nos capítulos seguintes. A ideia é treinar uma habilidade essencial: antes de codar, explicitar representação e transformação.
+A primeira atividade do projeto final é criar um artefato de engenharia chamado **Diário de Decisões Computacionais**. Ele treina a habilidade de explicitar representação, estado, regras e riscos antes de implementar.
+
+Crie o arquivo:
+
+```txt
+projects/projeto-final-plataforma-saas-inteligente/decisoes-computacionais.md
+```
+
+Com estas seções:
+
+1. Entidades principais.
+2. Entradas externas.
+3. Representações escolhidas.
+4. Estados possíveis.
+5. Transições permitidas.
+6. Invariantes.
+7. Dados sensíveis.
+8. Regras de validação.
+9. Eventos observáveis.
+10. Riscos iniciais.
+11. Decisões de performance.
+12. Decisões de segurança.
+13. Dúvidas abertas.
+
+Não preencha com respostas genéricas. Para cada entidade, registre pelo menos um exemplo concreto. Para cada entrada externa, indique origem, formato, confiança e validação. Para cada invariante, escreva uma frase verificável. Um bom diário deve permitir que outra pessoa entenda por que o sistema foi modelado daquele modo.
+
+## Conexão com projeto final
+
+Este capítulo conecta-se ao projeto final porque cria a base conceitual da plataforma SaaS inteligente que será amadurecida ao longo da formação. Antes de existir código executável, deve existir uma primeira versão explícita de entidades, entradas, estados, transições, invariantes, dados sensíveis, validações, eventos, riscos, decisões de performance e decisões de segurança.
+
+Esse diário não é burocracia. Ele reduz ambiguidade, melhora revisão técnica, facilita testes, orienta arquitetura e cria memória de decisão. Nos próximos capítulos, ele será revisado à luz de hardware, sistemas operacionais, redes, programação, tipos, dados, algoritmos, engenharia de software, segurança e observabilidade.
+
+## 13. Segurança
 
 ## Segurança
 
-Segurança começa quando você reconhece que toda entrada é uma fronteira entre um mundo não confiável e um sistema que executa regras. Computadores executam instruções com precisão; atacantes exploram justamente interpretações imprecisas, validações ausentes e permissões mal modeladas.
+Segurança é uma consequência direta de como o sistema representa entradas, identidades, permissões, instruções, segredos e evidências. Um sistema inseguro raramente falha apenas porque esqueceu uma biblioteca de proteção; ele falha porque permitiu que uma representação externa fosse interpretada com autoridade indevida, porque uma transição de estado sensível não exigiu autorização suficiente ou porque uma fronteira de confiança ficou implícita. Neste capítulo, segurança deve ser lida como disciplina de controle sobre transformação computacional: quem pode provocar qual mudança, com quais dados, em qual contexto e deixando qual evidência.
 
-Problemas de segurança comuns têm relação direta com fundamentos de computação:
+> **Princípio profissional:**
+> Todo dado vindo de fora do limite de confiança do sistema deve ser tratado como potencialmente inválido, ambíguo ou adversarial até que seja validado, autorizado e contextualizado.
 
-- **Injeção:** ocorre quando dados são interpretados como instruções. SQL injection, command injection e prompt injection têm diferenças técnicas, mas compartilham a confusão entre conteúdo fornecido e comando executável.
-- **Falha de autorização:** ocorre quando o sistema representa identidade, papel ou permissão de forma incompleta. Saber quem é o usuário não basta; é necessário verificar o que ele pode fazer neste recurso específico.
-- **Exposição de dados sensíveis:** ocorre quando logs, respostas, URLs, caches ou mensagens carregam informações que não deveriam atravessar aquela fronteira.
-- **Erro de serialização:** ocorre quando uma representação externa permite campos inesperados, tipos incoerentes ou objetos manipulados.
-- **Overflow e limites numéricos:** ocorrem quando operações excedem a capacidade segura da representação.
-- **Confiança indevida em cliente:** ocorre quando a interface envia algo como `isAdmin: true` e o servidor trata como autoridade.
+### Entrada não confiável
 
-Em Full Stack, a regra é validar no servidor mesmo que a interface valide. Em IA, a regra é tratar prompts e documentos recuperados como dados potencialmente adversariais, não como autoridade absoluta. Em Cybersegurança, a regra é modelar ativos, fronteiras, agentes, permissões e impactos.
+Entrada externa inclui requisições HTTP, formulários, arquivos, mensagens de fila, webhooks, cookies, headers, variáveis de ambiente, respostas de serviços externos e conteúdo recuperado para IA. Nenhuma dessas fontes deve ser assumida correta apenas porque “veio da aplicação”. Clientes podem ser modificados, redes podem repetir mensagens, integrações podem quebrar contrato e atacantes podem construir payloads manualmente.
 
-Uma postura profissional inclui: validação por allowlist, separação entre dados e comandos, princípio do menor privilégio, logs sem segredos, criptografia adequada, dependências atualizadas, revisão de código, testes de segurança e monitoramento de anomalias. Segurança não é uma seção adicionada ao fim do projeto; é consequência de boas representações e contratos desde o início.
+### Dados versus instruções
+
+Muitos ataques nascem quando dado é interpretado como instrução. SQL injection, command injection, template injection, XSS e prompt injection têm mecanismos diferentes, mas compartilham o mesmo erro conceitual: conteúdo externo atravessa uma fronteira e passa a controlar execução. Separar dados de comandos exige parametrização, escaping contextual, allowlists, sandboxes e políticas claras de instrução.
+
+### Identidade versus autorização
+
+Autenticação responde “quem é?”. Autorização responde “o que pode fazer neste recurso?”. Um usuário autenticado não deve concluir aula de outro usuário, acessar curso sem matrícula ou emitir certificado sem regra cumprida. Sistemas inseguros confundem identidade válida com permissão global.
+
+### Validação no cliente versus validação no servidor
+
+Validação no frontend melhora experiência, mas não protege o sistema. O servidor deve validar formato, tipo, limites, permissões e invariantes. Uma interface pode desabilitar um botão; um atacante pode chamar a API diretamente. A fronteira confiável geralmente começa no backend após autenticação, autorização e validação.
+
+### Logs e vazamento de dados
+
+Logs são evidência, mas também podem virar vazamento. Tokens, senhas, documentos pessoais, prompts sensíveis, respostas privadas de IA e dados financeiros não devem aparecer em logs comuns. O objetivo é registrar o suficiente para investigar sem expor segredos. Boas práticas incluem mascaramento, níveis de log, retenção limitada, controle de acesso e auditoria.
+
+### IA e prompt injection
+
+Em sistemas com IA, documentos recuperados, mensagens de usuários e conteúdo web devem ser tratados como dados, não como autoridade. Prompt injection tenta inserir instruções maliciosas dentro de conteúdo que o modelo processa. A defesa envolve separação de papéis, validação de ferramentas, políticas de autorização fora do modelo, filtragem, monitoramento e revisão humana conforme risco.
+
+### Representação insegura
+
+Representações frágeis ampliam ataque. Um campo `role: "admin"` aceito do cliente é perigoso. Um token sem expiração amplia impacto de vazamento. Um ID sequencial exposto pode facilitar enumeração. Um número sem limite pode provocar abuso de recursos. Um objeto serializado sem esquema pode permitir campos inesperados. Segurança começa na modelagem de dados.
+
+## 14. Performance
 
 ## Performance
 
-Performance é a relação entre trabalho computacional, recursos consumidos e tempo percebido. Um sistema lento não é apenas desagradável; ele pode aumentar custo de infraestrutura, reduzir conversão, criar filas, provocar timeouts, duplicar requisições, mascarar falhas e abrir oportunidades de negação de serviço.
+Performance é o estudo do custo das transformações. Toda representação ocupa espaço, toda validação consome CPU, toda consulta usa algum recurso, toda rede adiciona latência, todo log ocupa armazenamento e todo modelo de IA tem custo de execução. Sistemas profissionais precisam equilibrar clareza, segurança, custo e tempo de resposta.
 
-A base de performance está em entender que toda transformação tem custo. Ler da memória costuma ser mais rápido que ler do disco; ler do disco costuma ser mais rápido que chamar uma rede distante; processar um item é diferente de processar milhões; copiar dados grandes entre camadas custa; serializar e desserializar JSON repetidamente custa; logs excessivos custam; índices aceleram leitura, mas tornam escrita mais cara; cache reduz latência, mas introduz invalidação e consistência eventual.
+Dimensões centrais:
 
-No exemplo de cálculo de item, performance parece irrelevante. Em escala, a história muda. Se uma loja calcula carrinhos milhões de vezes por dia, escolhas de representação, validação e estrutura de dados importam. Se cada cálculo chama um serviço remoto de preço sem cache e sem timeout, a aplicação ficará vulnerável à latência externa. Se um modelo de IA é chamado para cada tecla digitada, custo e tempo explodem. Se logs registram objetos enormes em cada requisição, armazenamento e busca ficam caros.
+- **custo de representação:** objetos grandes, strings extensas, payloads verbosos e estruturas inadequadas ocupam memória e rede;
+- **custo de transformação:** parse, validação, serialização, criptografia, compressão, busca e cálculo consomem CPU;
+- **tempo:** latência percebida pelo usuário e tempo total de processamento;
+- **memória:** retenção de objetos, caches, buffers, filas e vazamentos;
+- **I/O:** leitura e escrita em disco, banco e arquivos;
+- **rede:** chamadas remotas, DNS, TLS, largura de banda, retry e timeout;
+- **algoritmos:** complexidade de crescimento conforme volume de dados;
+- **cache:** reduz latência, mas introduz invalidação e consistência eventual;
+- **gargalos:** recurso dominante que limita throughput ou latência.
 
-Performance profissional começa com perguntas mensuráveis:
+Exemplos concretos:
 
-- Qual é o volume esperado de entradas?
-- Qual é a latência aceitável para o usuário?
-- Qual é o custo por operação?
-- Qual é a complexidade do algoritmo?
-- O gargalo está em CPU, memória, disco, rede, banco, lock, fila ou serviço externo?
-- O sistema degrada com segurança quando recursos acabam?
+- validar cedo evita custo desnecessário de banco, IA ou integrações;
+- consultar banco sem índice aumenta latência e carga;
+- serializar payload grande custa CPU e rede;
+- chamar modelo de IA aumenta latência, custo financeiro e variabilidade;
+- logs excessivos podem degradar performance e elevar custo de armazenamento;
+- cache mal invalidado melhora tempo de resposta, mas pode mostrar estado antigo;
+- algoritmo quadrático pode parecer aceitável com 100 itens e falhar com 1 milhão.
 
-O objetivo não é otimizar prematuramente cada linha. É escolher representações e abstrações que não inviabilizem evolução, medir antes de concluir e entender que eficiência também é requisito de confiabilidade.
+O objetivo não é otimizar prematuramente cada linha. É evitar escolhas que tornam o sistema inviável e medir antes de concluir. Perguntas profissionais incluem: qual volume esperado, qual latência aceitável, qual custo por operação, qual limite de memória, qual dependência externa é crítica, qual fallback existe e como o sistema degrada sob pressão?
+
+## 15. Testes
 
 ## Testes
 
-Testar é verificar se uma transformação preserva o contrato esperado. Em computação, testes não provam ausência absoluta de defeitos, mas reduzem incerteza, documentam comportamento e protegem evolução.
+Testes verificam comportamentos esperados sobre representações e transições. Eles não provam ausência absoluta de defeitos, mas reduzem incerteza, documentam contratos e protegem evolução.
 
-Para a função `calcularTotalDoItem`, testes essenciais incluem:
+Tipos úteis desde cedo:
+
+- **teste de unidade:** verifica uma transformação pequena, como `calcularTotalDoItem`.
+- **teste de integração:** verifica interação com banco, fila, arquivo, cache ou serviço externo.
+- **teste de contrato:** garante que produtor e consumidor concordam sobre campos, tipos, erros e versões.
+- **teste de propriedade:** valida regras gerais sobre muitos casos, quando aplicável. Exemplo: progresso nunca ultrapassa 100%.
+- **teste de segurança:** tenta entradas maliciosas, autorização indevida, abuso de limite e vazamento.
+- **teste de carga:** mede comportamento sob volume, concorrência e latência.
+- **teste de observabilidade:** confirma que logs, métricas e traces necessários são emitidos.
+
+Exemplos de testes conceituais para o cálculo de total:
 
 ```js
 import assert from 'node:assert/strict';
@@ -408,189 +619,229 @@ assert.equal(
   calcularTotalDoItem({ precoUnitarioEmCentavos: 10.5, quantidade: 2 }).error,
   'preco_unitario_invalido'
 );
-
-assert.equal(
-  calcularTotalDoItem(null).error,
-  'entrada_invalida'
-);
-
-assert.equal(
-  calcularTotalDoItem([]).error,
-  'entrada_invalida'
-);
-
-assert.equal(
-  calcularTotalDoItem({ precoUnitarioEmCentavos: 10_000_001, quantidade: 1 }).error,
-  'preco_unitario_invalido'
-);
-
-assert.equal(
-  calcularTotalDoItem({ precoUnitarioEmCentavos: 1000, quantidade: 1001 }).error,
-  'quantidade_invalida'
-);
 ```
 
-Em um sistema real, camadas de teste se complementam:
+Para concluir aula, testes mínimos deveriam cobrir: usuário sem matrícula não conclui; tentativa duplicada retorna o mesmo resultado ou é ignorada; progresso não ultrapassa 100%; certificado só fica elegível após todas as regras; logs não incluem token; evento é emitido uma única vez por conclusão efetiva.
 
-- **testes unitários:** validam transformações pequenas e regras puras;
-- **testes de contrato:** garantem compatibilidade entre API, consumidores e produtores;
-- **testes de integração:** verificam banco, filas, arquivos e serviços;
-- **testes end-to-end:** exercitam jornada de usuário;
-- **testes de segurança:** buscam entradas maliciosas e falhas de autorização;
-- **testes de performance:** verificam latência, throughput e consumo;
-- **testes de regressão:** impedem que comportamento já corrigido volte a falhar.
+## 16. Observabilidade
 
-Testes também são computação: recebem entradas, executam instruções, comparam saídas e produzem evidência. Um teste ruim codifica uma expectativa errada; um teste frágil prende a implementação; um teste ausente deixa contrato implícito.
+Observabilidade é a capacidade de explicar o comportamento real de um sistema a partir de sinais externos. Ela responde perguntas que testes não conseguem responder sozinhos em produção:
 
-## Observabilidade
+- o que aconteceu?
+- quando aconteceu?
+- com quem aconteceu?
+- qual entrada gerou?
+- qual regra foi aplicada?
+- qual estado mudou?
+- qual erro ocorreu?
+- qual dependência atrasou?
+- qual versão estava executando?
 
-Observabilidade é a capacidade de entender o estado interno de um sistema a partir de sinais externos. Em sistemas computacionais, os principais sinais são logs, métricas, traces e eventos de auditoria.
+Os sinais principais são:
 
-Sem observabilidade, a equipe sabe apenas que “algo deu errado”. Com observabilidade, ela pode responder: qual entrada chegou, qual contrato falhou, qual dependência atrasou, qual usuário foi afetado, qual versão estava em produção, qual regra decidiu, quanto tempo levou, quantas vezes ocorreu e se há sinal de ataque.
+- **logs:** registros estruturados de eventos relevantes, erros e decisões;
+- **métricas:** contadores, histogramas e gauges para volume, erro, latência e recursos;
+- **traces:** caminho de uma requisição por serviços, banco, filas e dependências;
+- **eventos de domínio:** fatos significativos como `AULA_CONCLUIDA` ou `CERTIFICADO_EMITIDO`;
+- **correlation id:** identificador para ligar logs, métricas e traces de uma mesma operação;
+- **auditoria:** evidência com integridade e retenção adequadas para ações sensíveis;
+- **evidência:** registros suficientes para explicar decisão, falha ou incidente.
 
-Para o exemplo de matrícula, sinais úteis incluem:
+Sem observabilidade, a equipe opera por adivinhação. Com observabilidade planejada, suporte, segurança, produto e engenharia conseguem investigar falhas, detectar ataques, medir impacto e melhorar o sistema. O trade-off é registrar o necessário sem vazar dados, degradar performance ou criar custo descontrolado.
 
-- log estruturado de tentativa de matrícula com `requestId`, `courseId`, resultado e motivo de erro, sem expor token ou dados sensíveis;
-- métrica de matrículas criadas por minuto;
-- métrica de falhas por tipo;
-- trace distribuído ligando API, banco e publicação de evento;
-- evento de auditoria quando uma matrícula é criada, cancelada ou alterada por administrador.
-
-Observabilidade exige equilíbrio. Registrar tudo pode vazar segredos e elevar custos. Registrar pouco impede investigação. O fundamento é o mesmo do restante do capítulo: decidir quais representações são necessárias para operar o sistema com segurança, confiabilidade e responsabilidade.
+## 17. Limitações e trade-offs
 
 ## Limitações
 
-Computadores são poderosos, mas limitados. Entre as limitações mais importantes estão:
+### Limitações da computação
 
-- **representação finita:** memória e armazenamento são finitos; números têm limites; textos dependem de encoding; tempo depende de relógios imperfeitos;
-- **ambiguidade humana:** máquinas não entendem intenção não codificada;
-- **complexidade:** alguns problemas crescem rápido demais para busca exaustiva;
-- **falhas físicas e operacionais:** disco, rede, energia, dependências e processos humanos falham;
-- **dados incompletos:** sistemas computam sobre o que foi representado, não sobre a realidade completa;
-- **modelos aproximados:** IA e estatística produzem estimativas, não verdades absolutas;
-- **segurança imperfeita:** não existe sistema conectado com risco zero;
-- **evolução contínua:** requisitos mudam e representações antigas precisam conviver com novas.
+Computadores são poderosos, mas finitos. As limitações mais importantes para engenharia são:
 
-Reconhecer limitações não diminui a computação. Ao contrário, é o que permite projetar sistemas robustos. Profissionais perigosos prometem certeza onde há incerteza; profissionais responsáveis especificam limites, monitoram comportamento e planejam mitigação.
+- **tempo:** algumas operações demoram mais do que o usuário, o negócio ou o SLA toleram;
+- **memória:** estruturas grandes, caches e concorrência podem esgotar recursos;
+- **precisão:** números, datas, ponto flutuante e medições podem perder exatidão;
+- **custo:** CPU, armazenamento, rede, IA, logs e equipe têm custo financeiro;
+- **energia:** computação consome energia e hardware, especialmente em escala e IA;
+- **incerteza:** entradas podem estar incompletas, atrasadas, enviesadas ou erradas;
+- **dados incompletos:** o sistema computa sobre representações, não sobre a realidade total;
+- **problemas intratáveis:** alguns problemas crescem rápido demais ou são indecidíveis em modelos formais.
+
+Reconhecer limites não diminui o papel da computação. Ao contrário, permite desenhar sistemas confiáveis. Profissionais responsáveis especificam hipóteses, medem comportamento, monitoram falhas e deixam claro o que o sistema não garante.
 
 ## Trade-offs
 
-Toda decisão computacional relevante envolve trade-offs.
+Trade-offs são escolhas conscientes entre qualidades desejáveis que competem entre si. Em computação profissional, uma decisão nunca deve ser avaliada apenas pela elegância local do código: ela precisa ser analisada pelo efeito sobre correção, segurança, performance, custo, experiência do usuário, operação e evolução. Explicitar trade-offs é uma prática de engenharia porque transforma preferência subjetiva em decisão revisável.
 
-- **Simplicidade versus precisão:** representar dinheiro como número decimal simples facilita código inicial, mas pode introduzir erro; representar em centavos exige disciplina de unidade.
-- **Abstração versus controle:** frameworks aceleram entrega, mas podem esconder custo e dificultar diagnóstico.
-- **Performance versus legibilidade:** otimizações manuais podem melhorar latência, mas tornar manutenção arriscada.
-- **Segurança versus conveniência:** autenticação multifator reduz risco, mas adiciona fricção; logs detalhados ajudam suporte, mas podem expor dados.
-- **Consistência versus disponibilidade:** sistemas distribuídos podem precisar escolher entre responder durante falha parcial ou preservar visão estritamente consistente.
-- **Generalidade versus foco:** uma solução muito genérica pode ficar complexa cedo demais; uma solução muito específica pode bloquear evolução.
-- **Automação versus supervisão:** IA pode acelerar triagem, mas decisões sensíveis podem exigir revisão humana, explicabilidade e trilha de auditoria.
+### Trade-offs profissionais
 
-O papel do engenheiro não é evitar trade-offs; é torná-los explícitos. Uma decisão aceitável para protótipo pode ser inaceitável para banco, hospital, defesa, educação ou sistema com dados infantis. Contexto, risco e custo importam.
+Decisões computacionais relevantes quase sempre envolvem troca:
+
+- **simplicidade versus flexibilidade:** uma solução simples é fácil de entender, mas pode exigir refatoração quando o domínio cresce;
+- **segurança versus usabilidade:** MFA, confirmações e permissões reduzem risco, mas aumentam fricção;
+- **performance versus clareza:** otimizações podem reduzir latência e aumentar complexidade;
+- **consistência versus disponibilidade:** sistemas distribuídos podem ter que escolher como se comportar sob falha parcial;
+- **automação versus controle humano:** IA e automações aceleram processos, mas decisões sensíveis podem exigir revisão;
+- **abstração versus controle fino:** frameworks aceleram entrega, mas escondem detalhes necessários em incidentes;
+- **custo versus qualidade:** logs, testes, redundância e modelos melhores custam, mas reduzem risco.
+
+O papel do engenheiro não é eliminar trade-offs. É torná-los explícitos, avaliá-los no contexto correto e registrar por que uma decisão foi tomada. Uma escolha aceitável para protótipo pode ser inadequada para produto financeiro, saúde, educação, segurança pública ou sistemas com dados infantis.
+
+## 18. Erros comuns
 
 ## Erros comuns
 
-1. **Confundir dado com significado.** `admin` em um campo textual não torna alguém administrador; autorização precisa de regra confiável.
-2. **Achar que validação no frontend basta.** O cliente está fora da fronteira confiável.
-3. **Usar tipos sem unidade.** `amount` sem dizer centavos, reais, dólares ou percentual convida erro.
-4. **Tratar logs como lixeira.** Logs devem ajudar investigação sem vazar segredos.
-5. **Ignorar limites numéricos.** Overflow, arredondamento e precisão importam.
-6. **Acreditar que abstração elimina fundamento.** Frameworks reduzem trabalho, não removem CPU, memória, rede e banco.
-7. **Confundir execução bem-sucedida com correção.** Rodar sem erro não significa atender contrato.
-8. **Otimizar sem medir.** Palpites de performance frequentemente atacam o lugar errado.
-9. **Confiar cegamente em IA.** Saídas de modelos devem ser validadas conforme risco e contexto.
-10. **Não registrar decisões.** Sem histórico, o sistema vira coleção de escolhas inexplicáveis.
+1. **Confundir dado com informação.** `42` sem contexto não diz se é idade, temperatura, código ou quantidade; decisões baseadas em interpretação implícita são frágeis.
+2. **Confiar no frontend.** O cliente pode ser modificado; validação e autorização decisivas precisam ocorrer no servidor.
+3. **Ignorar unidade nos nomes.** `amount` sem indicar centavos, reais, pontos ou percentual cria bugs silenciosos.
+4. **Usar ponto flutuante para dinheiro sem critério.** Pode introduzir erro de precisão, arredondamento e comparação.
+5. **Não modelar estados.** Sem estados válidos e transições permitidas, o sistema aceita situações impossíveis.
+6. **Não pensar em idempotência.** Retentativas, cliques duplicados e timeouts podem gerar efeitos repetidos.
+7. **Achar que framework elimina fundamentos.** Frameworks escondem HTTP, rede, banco e runtime, mas não removem seus limites.
+8. **Não registrar evidências.** Sem logs, métricas e auditoria, incidentes viram especulação.
+9. **Misturar entrada de usuário com instrução.** Essa confusão está na raiz de injeções e prompt injection.
+10. **Acreditar que IA “entende” como humano.** Modelos processam representações e padrões; saídas precisam ser avaliadas conforme risco.
+11. **Confundir execução com correção.** Um programa pode rodar e ainda violar regra de negócio, segurança ou consistência.
+12. **Otimizar sem medir.** Palpites atacam sintomas; métricas revelam gargalos reais.
+
+## 19. Checklist profissional
 
 ## Checklist
 
-### Checklist profissional
+Antes de implementar ou revisar uma transformação computacional, responda:
 
-Antes de implementar uma transformação computacional, verifique:
+- [ ] Eu sei quais entradas existem?
+- [ ] Eu sei como elas são representadas?
+- [ ] Eu sei quais entradas são externas e não confiáveis?
+- [ ] Eu sei quais estados são válidos?
+- [ ] Eu sei quais transições são permitidas?
+- [ ] Eu sei quais invariantes devem ser preservados?
+- [ ] Eu valido fronteiras não confiáveis?
+- [ ] Eu diferencio dado de instrução?
+- [ ] Eu separo identidade de autorização?
+- [ ] Eu sei o custo da transformação?
+- [ ] Eu tenho testes para casos felizes, inválidos e limites?
+- [ ] Eu tenho logs, métricas ou eventos para explicar comportamento?
+- [ ] Eu sei explicar o que acontece quando algo falha?
+- [ ] Eu documentei trade-offs relevantes?
 
-- [ ] A entrada está claramente definida.
-- [ ] A representação interna tem unidade e tipo explícitos.
-- [ ] O contrato diferencia dado, comando e identidade.
-- [ ] Entradas inválidas têm tratamento previsível.
-- [ ] Invariantes do domínio foram declaradas.
-- [ ] Erros não expõem segredos.
-- [ ] O comportamento relevante é testável.
-- [ ] Há sinais mínimos de observabilidade.
-- [ ] Custos de performance foram considerados proporcionalmente ao risco.
-- [ ] Trade-offs foram documentados.
-- [ ] A decisão conecta-se ao projeto final e aos capítulos seguintes.
+## 20. Exercícios guiados
 
 ## Exercícios
 
-### Exercícios guiados
+### Exercício 1 — Identificar representações
 
-1. Explique, com suas palavras, a diferença entre dado e informação usando o valor `100` em três contextos diferentes.
-2. Reescreva o exemplo de preço total usando nomes de variáveis que deixem unidade e moeda explícitas.
-3. Liste cinco entradas externas de uma aplicação de cursos online e classifique cada uma como confiável ou não confiável.
-4. Descreva o que pode dar errado se uma API aceitar `userId` do corpo da requisição para decidir quem está autenticado.
-5. Escolha uma ação comum em aplicativo web, como “curtir publicação” ou “alterar senha”, e escreva a cadeia: entrada, representação, validação, transformação, estado, saída e observabilidade.
-6. Identifique um caso em que performance e segurança entram em tensão. Explique qual decisão você tomaria e por quê.
-7. Para um assistente de IA que responde dúvidas de alunos, liste três riscos de representação ou interpretação incorreta.
-8. Crie três testes para uma função que calcula porcentagem de conclusão de curso.
+**Enunciado:** escolha três valores simples: `42`, `true` e `2026-06-23T10:00:00Z`. Para cada um, escreva três significados possíveis em sistemas diferentes.
+
+**Orientação:** inclua contexto, tipo, unidade e risco de interpretação errada.
+
+**Critério de resposta esperada:** a resposta deve mostrar que o mesmo dado bruto muda de significado conforme contrato e domínio.
+
+### Exercício 2 — Modelar estados
+
+**Enunciado:** modele os estados de uma matrícula em curso: criada, ativa, suspensa, concluída e cancelada.
+
+**Orientação:** desenhe transições permitidas e proibidas. Explique qual entrada provoca cada transição.
+
+**Critério de resposta esperada:** a resposta deve impedir estados contraditórios, como matrícula cancelada e ativa ao mesmo tempo.
+
+### Exercício 3 — Encontrar ambiguidades
+
+**Enunciado:** analise o campo `amount` em uma API de pagamentos.
+
+**Orientação:** liste perguntas que você faria antes de implementar: moeda, unidade, arredondamento, limite, sinal, imposto, desconto e representação no banco.
+
+**Critério de resposta esperada:** a resposta deve transformar um campo ambíguo em contrato verificável.
+
+### Exercício 4 — Separar dado de instrução
+
+**Enunciado:** explique por que concatenar entrada do usuário em SQL, shell, HTML ou prompt de IA pode ser perigoso.
+
+**Orientação:** use pelo menos dois exemplos de confusão entre conteúdo e comando.
+
+**Critério de resposta esperada:** a resposta deve propor mitigação, como parametrização, escaping contextual, validação e separação de papéis.
+
+### Exercício 5 — Criar invariantes
+
+**Enunciado:** crie cinco invariantes para a operação “concluir aula”.
+
+**Orientação:** pense em matrícula, progresso, duplicidade, certificado, autorização e auditoria.
+
+**Critério de resposta esperada:** cada invariante deve ser verificável por teste ou regra de negócio.
+
+## 21. Desafio prático
 
 ## Desafio
 
-### Desafios práticos
+**Desafio:** modele a operação de concluir uma aula em uma plataforma de cursos.
 
-Desafio principal: modele a computação por trás de “emitir certificado de conclusão”.
+Entregue um documento com:
 
-Entregáveis:
+1. entradas;
+2. representações;
+3. estados;
+4. transições;
+5. invariantes;
+6. riscos de segurança;
+7. riscos de performance;
+8. eventos observáveis;
+9. testes mínimos;
+10. pseudocódigo.
 
-1. Defina as entradas necessárias.
-2. Defina a representação interna de estudante, curso, aula, progresso e certificado.
-3. Declare pelo menos cinco invariantes.
-4. Escreva pseudocódigo para a transformação “emitir certificado”.
-5. Liste validações de segurança.
-6. Liste métricas, logs e eventos de auditoria.
-7. Explique um trade-off entre consistência e experiência do usuário.
-8. Escreva três testes de unidade e dois testes de integração em linguagem natural.
+Critérios de qualidade:
 
-Critério de qualidade: sua resposta deve permitir que outra pessoa implemente a primeira versão sem depender de adivinhação sobre significado dos dados.
+- a identidade do usuário não deve depender de `userId` enviado pelo cliente;
+- a autorização deve ser distinta da autenticação;
+- a operação deve ser idempotente;
+- progresso não pode ultrapassar 100%;
+- evento duplicado não pode gerar certificado duplicado;
+- logs não podem vazar token ou dados sensíveis;
+- o pseudocódigo deve ser claro o suficiente para orientar uma implementação inicial.
+
+## 22. Perguntas de revisão
 
 ## Revisão
 
-### Perguntas de revisão
+1. Qual a diferença entre dado e informação?
+2. Por que computadores manipulam representação e não significado diretamente?
+3. O que é uma transição de estado?
+4. O que é um invariante?
+5. Qual a diferença entre pré-condição e pós-condição?
+6. Como um ataque pode explorar confusão entre dado e instrução?
+7. Por que abstrações vazam?
+8. Como computação aparece em IA?
+9. Como computação aparece em uma API?
+10. Por que observabilidade faz parte da engenharia de software?
+11. Por que um programa que roda pode estar incorreto?
+12. Como performance, segurança e correção podem entrar em tensão?
 
-1. Por que computação pode ser definida como transformação de informação por regras executáveis?
-2. Por que bits precisam de contexto para representar informação útil?
-3. Qual é a diferença entre algoritmo, programa e processo?
-4. Como uma intenção humana vira comportamento executável?
-5. Por que abstrações são indispensáveis e perigosas ao mesmo tempo?
-6. Como fundamentos de representação impactam Full Stack?
-7. Como fundamentos de representação impactam IA?
-8. Como fundamentos de representação impactam Cybersegurança?
-9. Por que testes são parte da especificação do comportamento?
-10. Por que observabilidade precisa ser planejada desde o começo?
+## 23. Resumo do capítulo
 
-## Resumo do capítulo
+Computação é a transformação sistemática de representações por regras executáveis, produzindo saídas, decisões ou mudanças de estado dentro de limites. Essa definição une o primeiro programa, uma API profissional, um banco de dados, um pipeline de IA e um sistema de segurança. Em todos os casos, o sistema recebe entradas, interpreta representações, aplica regras, preserva ou altera estado e produz algum efeito observável.
 
-Computação é a disciplina de representar informação e transformá-la por regras executáveis. Computadores digitais manipulam bits, mas bits só ganham significado por convenções, tipos, contratos e contexto. Software transforma intenção humana em comportamento de máquina por camadas de abstração que passam por linguagens, runtimes, sistemas operacionais, memória, rede, armazenamento e interfaces.
+Software transforma intenção humana em comportamento executável. Essa transformação exige contratos, tipos, unidades, validação, autorização, testes e observabilidade. Abstrações tornam o trabalho possível, mas escondem custos e podem vazar em forma de bugs, lentidão, inconsistência ou incidente de segurança. Por isso, profissionais precisam saber trabalhar no nível de produto e também descer para camadas inferiores quando necessário.
 
-O capítulo mostrou que até uma operação simples, como calcular total de item, envolve representação, validação, limites e saída estruturada. Em um cenário profissional, como matrícula em plataforma de cursos, os mesmos fundamentos aparecem em autenticação, autorização, idempotência, persistência, eventos, logs, métricas e auditoria. Full Stack, IA e Cybersegurança não são áreas separadas desses fundamentos; elas são aplicações especializadas deles.
+Sistemas reais exigem mais do que código que “funciona”. Exigem correção, confiabilidade, segurança, performance, testes, logs, métricas, auditoria, limites explícitos e trade-offs documentados. Full Stack, IA e Cybersegurança são aplicações diferentes do mesmo fundamento: representar informação, transformar estado e lidar com consequências.
 
-A principal competência adquirida é pensar antes de codar: quais dados entram, o que significam, como são representados, quais regras os transformam, quais estados são permitidos, quais riscos existem, como testar e como observar.
+## 24. Conexão com os próximos capítulos
 
-## Conexão com os próximos capítulos
+Este capítulo prepara o terreno para todo o Livro 1. No próximo capítulo, a pergunta será como hardware, software e camadas de abstração cooperam para executar computação. Em sistemas operacionais, veremos como processos, memória, arquivos, permissões e dispositivos são gerenciados. Em redes e HTTP, estudaremos como estados e mensagens atravessam máquinas. Em programação, tipos, estruturas de dados e algoritmos, formalizaremos maneiras de representar e transformar informação com clareza e eficiência.
 
-No próximo capítulo, estudaremos hardware, software e camadas de abstração. A pergunta mudará de “o que é computação?” para “como diferentes camadas cooperam para executar computação?”. Depois avançaremos para sistemas operacionais, processos, memória, redes, Internet, HTTP, programação, tipos, estruturas de dados, algoritmos, Git, engenharia de software, arquitetura, testes, segurança e observabilidade.
+Depois, engenharia de software, requisitos, arquitetura, testes, segurança e observabilidade mostrarão como transformar fundamentos em sistemas profissionais. IA e Cybersegurança também voltarão continuamente: IA como computação sobre representações estatísticas e contextuais; Cybersegurança como proteção de fronteiras, identidades, permissões, dados, instruções e evidências.
 
-A conexão direta é esta: agora que você sabe que computação depende de representação, transformação e contratos, os próximos capítulos mostrarão as máquinas, camadas e práticas que tornam isso possível em sistemas reais.
+## 25. Referências conceituais
 
-## Conexão com projeto final
+Para aprofundamento ao longo da formação, as áreas mais importantes são:
 
-A contribuição deste capítulo para o projeto final é o **Diário de Decisões Computacionais**. Ele será usado para registrar entidades, representações, fronteiras, invariantes, validações, testes e sinais de observabilidade. Esse diário não é burocracia; é uma ferramenta para impedir que decisões fundamentais fiquem escondidas no código.
+- sistemas computacionais;
+- arquitetura de computadores;
+- teoria da computação;
+- teoria da informação;
+- linguagens de programação;
+- engenharia de software;
+- bancos de dados;
+- sistemas distribuídos;
+- segurança de aplicações;
+- observabilidade e confiabilidade;
+- inteligência artificial aplicada.
 
-Ao final deste capítulo, o projeto final ainda não precisa ter aplicação executável. Ele precisa ter pensamento técnico documentado. Essa documentação será a base para as próximas implementações.
-
-## Referências conceituais
-
-- Alan Turing e a noção de procedimento mecânico como base para modelos de computação.
-- Arquitetura de von Neumann como modelo clássico de armazenamento de dados e instruções na memória.
-- Teoria da informação como estudo de representação, codificação e transmissão de informação.
-- Sistemas operacionais como camada de gerenciamento de processos, memória, arquivos, dispositivos e permissões.
-- Engenharia de software como disciplina para transformar requisitos humanos em sistemas corretos, seguros, testáveis e evolutivos.
-- Segurança por design como prática de considerar ameaças, fronteiras e privilégios desde a concepção.
-- Observabilidade como prática de produzir evidências operacionais por logs, métricas, traces e eventos.
+Essas referências não são uma bibliografia formal neste momento; são mapas de estudo. O objetivo deste capítulo foi criar a base mental para que esses campos deixem de parecer assuntos isolados e passem a ser vistos como camadas complementares de uma mesma disciplina.

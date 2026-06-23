@@ -1,6 +1,6 @@
 # Content Status
 
-O Capítulo 01 do Livro 1 está aprovado após primeira escrita completa, revisão técnica, auditoria de profundidade, revisão de código, integração por geração de status/busca e validação automatizada. Demais capítulos permanecem planejados.
+O Capítulo 01 do Livro 1 está aprovado após reestruturação editorial profunda, revisão técnica, auditoria de profundidade, revisão de código, integração por geração de status/busca e validação automatizada. Demais capítulos permanecem planejados.
 
 ## Estados permitidos
 
@@ -23,7 +23,7 @@ A tabela abaixo registra o estado editorial atual por capítulo. Somente capítu
 
 | Capítulo | Arquivo | Status | Próxima etapa |
 |---|---|---|---|
-| O que é computação | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/01-o-que-e-computacao.md` | approved | Aprovado pelo Final Quality Gate Agent após escrita, revisão técnica, auditoria de profundidade, revisão de código, integração e validações automatizadas. |
+| O que é computação | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/01-o-que-e-computacao.md` | approved | Aprovado pelo Final Quality Gate Agent após reestruturação editorial profunda, revisão técnica, auditoria de profundidade, revisão de código, integração e validações automatizadas. |
 | Hardware, software e camadas de abstração | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/02-hardware-software.md` | planned | Chapter Writer Agent |
 | Sistemas operacionais | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/03-sistemas-operacionais.md` | planned | Chapter Writer Agent |
 | Processos, threads e concorrência | `books/livro-01-fundamentos-computacao-engenharia-software/chapters/04-processos-threads-concorrencia.md` | planned | Chapter Writer Agent |
