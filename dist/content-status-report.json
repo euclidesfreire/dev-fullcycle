@@ -1,5 +1,102 @@
 {
-  "generatedAt": "2026-06-23T13:56:12.799Z",
-  "totalChapters": 0,
-  "chapters": []
+  "generatedAt": "2026-06-23T14:36:03.026Z",
+  "totalChapters": 24,
+  "chapters": [
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/01-o-que-e-computacao.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/02-hardware-software.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/03-sistemas-operacionais.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/04-processos-threads-concorrencia.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/05-memoria.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/06-redes.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/07-internet.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/08-http-apis-web.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/09-programacao.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/10-tipos-contratos.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/11-estruturas-dados.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/12-algoritmos-complexidade.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/13-git-controle-versao.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/14-engenharia-software.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/15-requisitos-modelagem.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/16-clean-code.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/17-solid-design.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/18-arquitetura-software.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/19-testes-qualidade.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/20-seguranca-design.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/21-observabilidade.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/22-manutencao-evolucao.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/23-pensamento-arquiteto.md",
+      "status": "planned"
+    },
+    {
+      "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/24-projeto-final-integrador.md",
+      "status": "planned"
+    }
+  ]
 }

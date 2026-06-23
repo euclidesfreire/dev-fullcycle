@@ -3,10 +3,14 @@ import { markdownFiles, read, rel, isChapterFile, requiredSections, fail } from 
 const errors = [];
 const chapterFiles = markdownFiles().filter(isChapterFile);
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 for (const file of chapterFiles) {
   const content = read(file);
   for (const section of requiredSections) {
-    const heading = new RegExp(`^#{2,4}\\s+${section}\\s*$`, 'imu');
+    const heading = new RegExp(`^#{2,4}[ \\t]+${escapeRegExp(section)}[ \\t]*$`, 'imu');
     if (!heading.test(content)) errors.push(`${rel(file)} não contém a seção obrigatória "${section}".`);
   }
 
@@ -20,7 +24,7 @@ for (const file of chapterFiles) {
   ];
 
   for (const [section, minChars] of weakSignals) {
-    const pattern = new RegExp(`^#{2,4}\\s+${section}\\s*$([\\s\\S]*?)(?=^#{2,4}\\s+|$)`, 'imu');
+    const pattern = new RegExp(`^#{2,4}[ \\t]+${escapeRegExp(section)}[ \\t]*$([\\s\\S]*?)(?=^#{2,4}[ \\t]+|(?![\\s\\S]))`, 'imu');
     const match = content.match(pattern);
     if (match && match[1].trim().length < minChars) {
       errors.push(`${rel(file)} possui seção "${section}" curta demais para auditoria de profundidade (${match[1].trim().length}/${minChars} caracteres).`);
