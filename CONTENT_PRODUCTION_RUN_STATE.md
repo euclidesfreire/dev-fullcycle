@@ -3,21 +3,18 @@
 - **Data da última execução:** 2026-06-23
 - **Modo:** produção contínua controlada
 - **Escopo:** Livro 1 — Fundamentos de Computação e Engenharia de Software
-- **Último lote iniciado:** Lote 01
-- **Último lote concluído:** Lote 01
+- **Último lote iniciado:** Lote 02
+- **Último lote concluído:** Lote 02
 - **Capítulos processados:**
-  - Capítulo 01 — O que é computação (`final-gate`)
-  - Capítulo 02 — Hardware, software e camadas de abstração (`final-gate`)
+  - Capítulo 03 — Sistemas operacionais (`final-gate`)
+  - Capítulo 04 — Processos, threads e concorrência (`final-gate`)
 - **Capítulos bloqueados:**
-  - Lote 02 — Capítulos 03 e 04, bloqueados para esta mesma execução por risco de qualidade/contexto, não por falha de conteúdo do Lote 01.
+  - Lote 03 — Capítulos 05 e 06, bloqueados para próxima execução por risco de qualidade/contexto, não por falha de conteúdo do Lote 02.
 - **Motivo de bloqueio:**
-  - Condição de parada obrigatória por tamanho de contexto e risco de superficialidade. Sistemas operacionais, processos, threads e concorrência exigem execução dedicada para manter profundidade profissional.
+  - Condição de parada por escopo seguro da execução. Memória, redes e seus efeitos em sistemas reais exigem lote dedicado para preservar profundidade, laboratórios e auditoria editorial.
 - **Próxima ação recomendada:**
-  - Iniciar Lote 02 em produção controlada dedicada, começando por `books/livro-01-fundamentos-computacao-engenharia-software/chapters/03-sistemas-operacionais.md`, preservando o padrão consolidado no Lote 01.
+  - Iniciar Lote 03 em produção controlada dedicada, começando por `books/livro-01-fundamentos-computacao-engenharia-software/chapters/05-memoria.md`, preservando o padrão consolidado nos Lotes 01 e 02.
 - **Validações finais executadas:**
   - `npm run validate` — passou.
-  - `npm run validate:depth` — passou.
-  - `npm run validate:placeholders` — passou.
-  - `npm run validate:links` — passou.
   - `npm run generate:status` — passou.
   - `npm run generate:search` — passou.
