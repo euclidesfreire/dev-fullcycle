@@ -1,0 +1,23 @@
+# Content Production Run State
+
+- **Data da última execução:** 2026-06-23
+- **Modo:** produção contínua controlada
+- **Escopo:** Livro 1 — Fundamentos de Computação e Engenharia de Software
+- **Último lote iniciado:** Lote 01
+- **Último lote concluído:** Lote 01
+- **Capítulos processados:**
+  - Capítulo 01 — O que é computação (`final-gate`)
+  - Capítulo 02 — Hardware, software e camadas de abstração (`final-gate`)
+- **Capítulos bloqueados:**
+  - Lote 02 — Capítulos 03 e 04, bloqueados para esta mesma execução por risco de qualidade/contexto, não por falha de conteúdo do Lote 01.
+- **Motivo de bloqueio:**
+  - Condição de parada obrigatória por tamanho de contexto e risco de superficialidade. Sistemas operacionais, processos, threads e concorrência exigem execução dedicada para manter profundidade profissional.
+- **Próxima ação recomendada:**
+  - Iniciar Lote 02 em produção controlada dedicada, começando por `books/livro-01-fundamentos-computacao-engenharia-software/chapters/03-sistemas-operacionais.md`, preservando o padrão consolidado no Lote 01.
+- **Validações finais executadas:**
+  - `npm run validate` — passou.
+  - `npm run validate:depth` — passou.
+  - `npm run validate:placeholders` — passou.
+  - `npm run validate:links` — passou.
+  - `npm run generate:status` — passou.
+  - `npm run generate:search` — passou.

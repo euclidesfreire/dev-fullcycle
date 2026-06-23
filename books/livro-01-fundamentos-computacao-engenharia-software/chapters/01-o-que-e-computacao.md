@@ -2,7 +2,7 @@
 title: "O que é computação"
 book: "Livro 1 — Fundamentos de Computação e Engenharia de Software"
 chapter: 1
-status: rewriting
+status: final-gate
 agent_flow: editorial-director -> curriculum-architect -> chapter-writer -> technical-reviewer -> depth-auditor -> code-example-reviewer -> site-integrator -> final-quality-gate
 prerequisites: "Nenhum; capítulo de abertura."
 competencies: "Compreender computação como transformação formal de informação e estado; explicar representação, dados, instruções, abstrações, contratos, limites computacionais e impactos em Full Stack, IA e Cybersegurança."
@@ -14,7 +14,7 @@ final_project_connection: "Inicia o projeto final integrador com um diário téc
 
 ## Status editorial
 
-- **Estado editorial atual:** em reescrita/reconciliação. O conteúdo existente é real, mas o status local anterior de aprovação foi invalidado até que `CONTENT_STATUS.md`, blueprint, rubrica, benchmark, evidência de domínio e Final Quality Gate estejam consistentes.
+- **Estado editorial atual:** `final-gate`. O capítulo foi reconciliado na execução controlada do Content Production Orchestrator; permanece sem marcação automática de `approved` até revisão humana/final explícita.
 - **Livro:** Fundamentos de Computação e Engenharia de Software.
 - **Capítulo:** 01 — O que é computação.
 - **Escopo:** computação como representação de informação, transformação formal de estado, execução por máquina, abstrações, correção, limites e consequências profissionais em Full Stack, IA e Cybersegurança.
