@@ -52,7 +52,7 @@ export function markdownFiles() {
 export function isChapterFile(file) {
   const r = rel(file);
   if (r.startsWith('agents/')) return false;
-  return /(^|\/)(chapters?|livros?|books?|content|conteudo|docs)\//i.test(r);
+  return /(^|\/)chapters?\//i.test(r);
 }
 
 export const requiredSections = [
