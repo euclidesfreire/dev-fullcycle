@@ -1,0 +1,15 @@
+{
+  "name": "dev-fullcycle-editorial-factory",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fábrica editorial automatizada para formação técnica em IA, Cybersegurança e Full Stack moderno.",
+  "type": "module",
+  "scripts": {
+    "validate:depth": "node scripts/validate-depth.js",
+    "validate:placeholders": "node scripts/validate-placeholders.js",
+    "validate:links": "node scripts/validate-links.js",
+    "generate:status": "node scripts/generate-status-report.js",
+    "generate:search": "node scripts/generate-search-index.js",
+    "validate": "npm run validate:placeholders && npm run validate:links && npm run validate:depth"
+  }
+}
