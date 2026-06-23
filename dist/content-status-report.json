@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T18:59:13.901Z",
+  "generatedAt": "2026-06-23T19:07:50.064Z",
   "totalChapters": 24,
   "chapters": [
     {
@@ -12,11 +12,11 @@
     },
     {
       "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/03-sistemas-operacionais.md",
-      "status": "planned"
+      "status": "final-gate"
     },
     {
       "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/04-processos-threads-concorrencia.md",
-      "status": "planned"
+      "status": "final-gate"
     },
     {
       "file": "books/livro-01-fundamentos-computacao-engenharia-software/chapters/05-memoria.md",
