@@ -6,10 +6,14 @@ Este repositório é uma fábrica editorial para produzir uma formação técnic
 
 Qualquer agente, humano ou automação deve ler, respeitar e manter consistência com:
 
-- `EDITORIAL_MANIFESTO.md`
+- `CONTENT_BLUEPRINT.md`
+- `DEFINITION_OF_DONE.md`
+- `MASTERY_EVIDENCE_MAP.md`
+- `APPROVAL_POLICY.md`
 - `QUALITY_CHECKLIST.md`
-- `CURRICULUM_MAP.md`
+- `EDITORIAL_MANIFESTO.md`
 - `CONTENT_STATUS.md`
+- `CURRICULUM_MAP.md`
 
 Nenhuma decisão editorial, técnica ou de integração pode contrariar esses documentos.
 
@@ -33,6 +37,10 @@ Nenhum conteúdo pode ser marcado como completo apenas porque foi escrito. Um ca
 14. Tem conexão com o projeto final.
 15. Passa nos scripts de validação.
 16. Passa pela auditoria de profundidade.
+17. Tem blueprint aprovado antes da escrita ou reescrita.
+18. Cumpre a Definition of Done do tipo de capítulo.
+19. Tem evidência de domínio definida e entregue.
+20. Cumpre a política de aprovação global.
 
 ## Agentes internos
 
@@ -142,3 +150,13 @@ Além da cadeia editorial principal, os seguintes agentes devem ser acionados qu
 6. `mastery-assessment-agent.md`
 
 Esses agentes não substituem revisão técnica, auditoria de profundidade, revisão de código, integração e quality gate. Eles acrescentam uma régua de livro de referência, especialização, prática progressiva, produção e avaliação demonstrável.
+
+
+## Documentos de controle adicionados
+
+- `CONTENT_BLUEPRINT.md` define a matriz obrigatória antes da escrita.
+- `DEFINITION_OF_DONE.md` define pronto por tipo de capítulo.
+- `MASTERY_EVIDENCE_MAP.md` define evidências aceitáveis de domínio.
+- `APPROVAL_POLICY.md` define as condições formais para aprovação.
+
+Em caso de conflito entre status local de capítulo e `CONTENT_STATUS.md`, prevalece o status global. Nenhum agente pode aprovar capítulo apenas por extensão textual, conclusão aparente ou presença de seções obrigatórias sem rubrica, laboratório, benchmark e evidência de domínio.
